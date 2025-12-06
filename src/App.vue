@@ -10,12 +10,16 @@
     
     <!-- Seção de Cards abaixo do carousel -->
     <CardsSection />
+    
+    <!-- Carousel de Clientes -->
+    <ClientsCarousel />
   </div>
 </template>
 <script>
 import Header from './components/Header.vue';
 import Carousel from './components/Carousel.vue';
 import CardsSection from './components/CardsSection.vue';
+import ClientsCarousel from './components/ClientsCarousel.vue';
 
 export default {
   name: "App",
@@ -23,6 +27,7 @@ export default {
     Header,
     Carousel,
     CardsSection,
+    ClientsCarousel,
   }
 }
 </script>
