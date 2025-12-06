@@ -31,8 +31,8 @@
               :key="index"
               :src="client.logo"
               :alt="client.name"
-              max-width="200"
-              max-height="120"
+              :max-width="display.mobile ? '150' : '200'"
+              :max-height="display.mobile ? '100' : '120'"
               contain
               class="client-logo"
             ></v-img>
@@ -45,6 +45,9 @@
 
 <script setup>
 import { ref, computed } from 'vue'
+import { useDisplay } from 'vuetify'
+
+const display = useDisplay()
 
 const clients = ref([
   {
@@ -97,11 +100,12 @@ const clients = ref([
   }
 ])
 
-// Agrupa os clientes em grupos de 4
+// Agrupa os clientes: 2 no mobile, 4 no desktop
 const clientGroups = computed(() => {
   const groups = []
-  for (let i = 0; i < clients.value.length; i += 4) {
-    groups.push(clients.value.slice(i, i + 4))
+  const itemsPerGroup = display.mobile.value ? 2 : 4
+  for (let i = 0; i < clients.value.length; i += itemsPerGroup) {
+    groups.push(clients.value.slice(i, i + itemsPerGroup))
   }
   return groups
 })

@@ -13,6 +13,12 @@
     
     <!-- Carousel de Clientes -->
     <ClientsCarousel />
+    
+    <!-- Seção Sobre Nós -->
+    <AboutUs />
+    
+    <!-- Rodapé -->
+    <Footer />
   </div>
 </template>
 <script>
@@ -20,6 +26,8 @@ import Header from './components/Header.vue';
 import Carousel from './components/Carousel.vue';
 import CardsSection from './components/CardsSection.vue';
 import ClientsCarousel from './components/ClientsCarousel.vue';
+import AboutUs from './components/AboutUs.vue';
+import Footer from './components/Footer.vue';
 
 export default {
   name: "App",
@@ -28,6 +36,8 @@ export default {
     Carousel,
     CardsSection,
     ClientsCarousel,
+    AboutUs,
+    Footer,
   }
 }
 </script>
