@@ -1,40 +1,55 @@
 <template>
-    <div class="bg-amber-50 text-blue-900 px-4 max-w-[80%] w-full shadow-md md:flex justify-between items-center mt-6 rounded-xl relative z-20 header-padding">
-        <div class="flex items-center justify-between w-full md:w-auto gap-2">
-            <img :src="logo" alt="Logo" class="h-10 w-auto shadow-md rounded-full">
+    <div class="bg-white text-blue-900 px-4 max-w-[90%] w-full shadow-md md:flex justify-between items-center mt-6 rounded-lg relative z-20 header-padding overflow-visible">
+        <div class="flex items-center justify-between w-full md:w-auto md:gap-1 gap-2 relative">
+            <!-- Logo dentro do menu (lado esquerdo) -->
+            <div class="logo-container flex items-center">
+                <img :src="logo" alt="Logo" class="logo-image">
+            </div>
+            
             <!-- Botão Hamburger (apenas mobile) -->
             <button 
                 @click="open = !open" 
-                class="md:hidden text-blue-900 focus:outline-none p-1"
+                class="md:hidden text-blue-900 focus:outline-none p-1 z-40 relative"
                 aria-label="Menu"
             >
                 <i :class="open ? 'bi bi-x-lg text-xl' : 'bi bi-list text-xl'"></i>
             </button>
         </div>
         
-        <!-- Menu de Links -->
+        <!-- Menu Mobile (Links + Ícones Sociais) -->
         <div 
             :class="[
-                'md:flex md:items-center',
-                open ? 'block' : 'hidden md:block'
+                'md:hidden',
+                open ? 'block' : 'hidden'
             ]"
-            class="absolute md:static top-full right-0 md:left-auto md:right-auto md:w-auto w-40 md:bg-transparent bg-amber-50 md:shadow-none shadow-md md:rounded-none rounded-t-xl z-50"
+            class="absolute top-full right-0 w-48 bg-white shadow-md rounded-lg z-50 mt-2"
         >
-            <ul class="md:flex md:items-center gap-6 uppercase font-bold text-sm md:py-0 py-3 px-4 md:px-0">
-                <li class="md:mx-2 md:my-0 my-3 text-center" v-for="link in Links" :key="link.name">
+            <!-- Menu de Links -->
+            <ul class="uppercase font-bold text-sm py-3 px-6">
+                <li class="my-3 text-center" v-for="link in Links" :key="link.name">
                     <a :href="link.link" class="hover:text-green-700 block">{{link.name}}</a>
+                </li>
+            </ul>
+            
+            <!-- Ícones Sociais -->
+            <div class="flex items-center justify-center gap-3 pb-3 px-4 border-t border-gray-200 pt-3">
+                <i class="bi bi-instagram text-xl cursor-pointer hover:text-green-700"></i>
+                <i class="bi bi-facebook text-xl cursor-pointer hover:text-green-700"></i>
+                <i class="bi bi-tiktok text-xl cursor-pointer hover:text-green-700"></i>
+            </div>
+        </div>
+        
+        <!-- Menu Desktop (Links) -->
+        <div class="hidden md:flex md:items-center">
+            <ul class="flex items-center gap-4 uppercase font-bold text-sm">
+                <li class="mx-1" v-for="link in Links" :key="link.name">
+                    <a :href="link.link" class="hover:text-green-700">{{link.name}}</a>
                 </li>
             </ul>
         </div>
         
-        <!-- Ícones Sociais -->
-        <div 
-            :class="[
-                'flex items-center gap-3',
-                open ? 'flex top-[calc(100%+120px)]' : 'hidden md:flex top-full',
-                'absolute md:static right-0 md:left-auto md:right-auto md:w-auto w-40 md:bg-transparent bg-amber-50 md:shadow-none shadow-md rounded-b-xl md:rounded-none justify-center md:justify-end md:py-0 py-3 px-4 md:px-0 z-50'
-            ]"
-        >
+        <!-- Ícones Sociais Desktop -->
+        <div class="hidden md:flex items-center gap-2">
             <i class="bi bi-instagram text-xl cursor-pointer hover:text-green-700"></i>
             <i class="bi bi-facebook text-xl cursor-pointer hover:text-green-700"></i>
             <i class="bi bi-tiktok text-xl cursor-pointer hover:text-green-700"></i>
@@ -50,6 +65,7 @@ export default {
         const open = ref(false)
         const Links = [
             { name: "Serviços", link: "#" },
+            { name: "Clientes", link: "#" },
             { name: "Sobre nós", link: "#" },
             { name: "Contato", link: "#" },
         ]
@@ -65,14 +81,39 @@ export default {
 
 <style scoped>
 .header-padding {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    min-height: 60px;
 }
 
 @media (min-width: 768px) {
     .header-padding {
-        padding-top: 0.125rem !important;
-        padding-bottom: 0.125rem !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+        min-height: 80px;
     }
 }
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    z-index: 30;
+    height: 100%;
+}
+
+.logo-image {
+    max-height: 55px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+}
+
+@media (min-width: 768px) {
+    .logo-image {
+        max-height: 80px;
+    }
+}
+
 </style>

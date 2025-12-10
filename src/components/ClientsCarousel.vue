@@ -11,43 +11,55 @@
         </h2>
       </div>
 
-      <!-- Carousel de logos dos clientes -->
-      <v-carousel
-        :show-arrows="false"
-        :show-arrows-on-hover="true"
-        cycle
-        interval="6000"
-        height="150"
-        hide-delimiters
-        class="clients-carousel"
-      >
-        <v-carousel-item
-          v-for="(group, groupIndex) in clientGroups"
-          :key="groupIndex"
-        >
-          <div class="d-flex justify-center align-center h-100 gap-4 px-4">
-            <v-img
-              v-for="(client, index) in group"
-              :key="index"
-              :src="client.logo"
-              :alt="client.name"
-              :max-width="display.mobile ? '150' : '200'"
-              :max-height="display.mobile ? '100' : '120'"
-              contain
-              class="client-logo"
-            ></v-img>
+      <!-- Carousel de logos dos clientes com scroll infinito -->
+      <div class="clients-carousel-wrapper">
+        <div class="clients-scroll-container" ref="scrollContainer">
+          <div class="clients-row" :style="{ transform: `translateX(${scrollPosition}px)` }">
+            <!-- Primeira linha de clientes -->
+            <div
+              v-for="(client, index) in duplicatedClients"
+              :key="`first-${index}`"
+              class="client-item"
+            >
+              <v-img
+                :src="client.logo"
+                :alt="client.name"
+                :width="display.mobile.value ? 150 : 200"
+                :height="display.mobile.value ? 100 : 120"
+                contain
+                class="client-logo"
+              ></v-img>
+            </div>
+            <!-- Segunda linha duplicada para loop infinito -->
+            <div
+              v-for="(client, index) in duplicatedClients"
+              :key="`second-${index}`"
+              class="client-item"
+            >
+              <v-img
+                :src="client.logo"
+                :alt="client.name"
+                :width="display.mobile.value ? 150 : 200"
+                :height="display.mobile.value ? 100 : 120"
+                contain
+                class="client-logo"
+              ></v-img>
+            </div>
           </div>
-        </v-carousel-item>
-      </v-carousel>
+        </div>
+      </div>
     </v-container>
   </div>
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useDisplay } from 'vuetify'
 
 const display = useDisplay()
+const scrollContainer = ref(null)
+const scrollPosition = ref(0)
+const animationFrameId = ref(null)
 
 const clients = ref([
   {
@@ -100,14 +112,46 @@ const clients = ref([
   }
 ])
 
-// Agrupa os clientes: 2 no mobile, 4 no desktop
-const clientGroups = computed(() => {
-  const groups = []
-  const itemsPerGroup = display.mobile.value ? 2 : 4
-  for (let i = 0; i < clients.value.length; i += itemsPerGroup) {
-    groups.push(clients.value.slice(i, i + itemsPerGroup))
+// Duplica os clientes para criar loop infinito
+const duplicatedClients = computed(() => {
+  return clients.value
+})
+
+// Calcula a largura de um item (incluindo gap)
+const itemWidth = computed(() => {
+  const baseWidth = display.mobile.value ? 150 : 200
+  const gap = 16 // gap-4 = 1rem = 16px
+  return baseWidth + gap
+})
+
+// Calcula a largura total da primeira linha
+const totalWidth = computed(() => {
+  return duplicatedClients.value.length * itemWidth.value
+})
+
+// Função de animação
+const animate = () => {
+  scrollPosition.value -= 0.5 // Velocidade do scroll (ajuste conforme necessário)
+  
+  // Quando chega ao final da primeira linha, reseta para o início
+  if (Math.abs(scrollPosition.value) >= totalWidth.value) {
+    scrollPosition.value = 0
   }
-  return groups
+  
+  animationFrameId.value = requestAnimationFrame(animate)
+}
+
+onMounted(() => {
+  // Aguarda um frame para garantir que o DOM está renderizado
+  requestAnimationFrame(() => {
+    animate()
+  })
+})
+
+onUnmounted(() => {
+  if (animationFrameId.value) {
+    cancelAnimationFrame(animationFrameId.value)
+  }
 })
 </script>
 
@@ -118,14 +162,49 @@ const clientGroups = computed(() => {
   z-index: 5;
 }
 
-.clients-carousel {
+.clients-carousel-wrapper {
   max-width: 1200px;
   margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  height: 150px;
+  min-height: 150px;
+  background-color: transparent;
+}
+
+.clients-scroll-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.clients-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  height: 100%;
+  will-change: transform;
+  transition: none;
+  position: relative;
+}
+
+.client-item {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 150px;
+}
+
+@media (min-width: 768px) {
+  .client-item {
+    min-width: 200px;
+  }
 }
 
 .client-logo {
   opacity: 0.8;
-  transition: all 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .client-logo:hover {
