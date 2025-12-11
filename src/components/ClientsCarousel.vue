@@ -2,7 +2,7 @@
   <div class="clients-section py-12 px-4">
     <v-container>
       <!-- Texto acima do carousel -->
-      <div class="text-center mb-8">
+      <div class="text-center mb-8 section-header">
         <h2 class="text-h4 font-weight-bold mb-2">
           + DE 150 CLIENTES SATISFEITOS
         </h2>
@@ -160,6 +160,19 @@ onUnmounted(() => {
   background-color: #ffffff;
   position: relative;
   z-index: 5;
+  min-height: 400px;
+  padding-top: 4rem !important;
+  padding-bottom: 4rem !important;
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .clients-section {
+    min-height: 350px;
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
 }
 
 .clients-carousel-wrapper {
@@ -210,6 +223,16 @@ onUnmounted(() => {
 .client-logo:hover {
   opacity: 1;
   transform: scale(1.05);
+}
+
+.section-header {
+  margin-bottom: 3rem !important;
+}
+
+@media (max-width: 768px) {
+  .section-header {
+    margin-bottom: 2rem !important;
+  }
 }
 </style>
 

@@ -1,6 +1,9 @@
 <template>
   <div class="cards-section py-12 px-4">
     <v-container>
+      <div class="section-title">
+        <h2 class="title-text">Conheça nossos cursos</h2>
+      </div>
       <v-row justify="center">
         <v-col
           v-for="(card, index) in cards"
@@ -41,12 +44,15 @@
 
             <v-card-actions>
               <v-btn
-                color="deep-purple-lighten-2"
-                :text="card.buttonText || 'Saiba Mais'"
+                class="price-button"
                 block
-                border
                 @click="reserve(index)"
-              ></v-btn>
+              >
+                <div class="button-price-content">
+                  <span class="current-price">{{ card.price }}</span>
+                  <span v-if="card.oldPrice" class="old-price-text">{{ card.oldPrice }}</span>
+                </div>
+              </v-btn>
             </v-card-actions>
           </v-card>
         </v-col>
@@ -58,70 +64,78 @@
 <script setup>
 import { ref } from 'vue'
 import curso001 from '../assets/curso001.jpg'
+import curso002 from '../assets/cursos002.jpg'
+import curso003 from '../assets/cursos003.jpg'
+
 
 
 const cards = ref([
   {
     title: 'Plano Básico',
-    description: 'Ideal para pequenas empresas e residências que buscam soluções ambientais essenciais.',
+    price: 'BRL 49,90',
+    description: 'O plano perfeito para a empresa que não quer mais dor de cabeça com cursos exigidos pelas diferentes fiscalizações municipais, estaduais e federais.',
     image: curso001,
-    buttonText: 'Saiba Mais',
     loading: false
   },
   {
-    title: 'Plano Intermediário',
-    description: 'Solução completa para empresas de médio porte que necessitam de um acompanhamento mais detalhado e personalizado. Inclui todas as funcionalidades do plano básico, além de auditorias ambientais regulares, desenvolvimento de planos de ação específicos, treinamento de equipes e monitoramento contínuo do desempenho ambiental.',
-    image: 'https://cdn.vuetifyjs.com/images/cards/docks.jpg',
-    buttonText: 'Saiba Mais',
+    title: 'Plano Essencial',
+    price: 'BRL 650,00',
+    description: 'O plano ideal para a sua empresa ter todos os itens necessários sanitários exigidos pela vigilância sanitária local, verifique a disponibilidade na sua cidade atualmente atendemos Foz do Iguaçu/PR e Niterói/RJ',
+    image: curso002,
     loading: false
   },
   {
-    title: 'Plano Premium',
-    description: 'O mais completo e abrangente de nossos planos, desenvolvido para grandes corporações e organizações que buscam excelência em gestão ambiental. Inclui todos os serviços dos planos anteriores, além de consultoria estratégica especializada, certificações ambientais e soluções customizadas.',
-    image: 'https://cdn.vuetifyjs.com/images/cards/sunshine.jpg',
-    buttonText: 'Saiba Mais',
+    title: 'Plano Completo',
+    price: 'BRL 980,00',
+    description: 'O mais aclamado por todas as empresas de grande porte, tem tudo incluído desde sanitários a PGRS ou PGRCC o perfil que mais se enquadra na maioria, não quer ter problemas com multas, escolha este de olhos fechados para que não se preocupe depois!',
+    image: curso003,
     loading: false
   },
   {
-    title: 'Consultoria Ambiental',
-    description: 'Serviço especializado de consultoria para empresas que precisam de orientação técnica em questões ambientais. Oferecemos análise de processos, identificação de impactos e desenvolvimento de estratégias personalizadas para cada cliente.',
-    image: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
-    buttonText: 'Saiba Mais',
+    title: 'Plano Avançado',
+    price: 'BRL 3.508,00',
+    description: 'Plano mais eficaz para área da saúde ambiental, tudo incluso e acompanhamento contínuo, os valores podem sofrer alterações de acordo com seu tamanho ou produção de resíduos.',
+    image: curso001,
     loading: false
   },
   {
-    title: 'Auditoria Ambiental',
-    description: 'Realizamos auditorias completas para verificar o cumprimento das normas ambientais e identificar oportunidades de melhoria. Nossos relatórios detalhados ajudam empresas a se manterem em conformidade com a legislação vigente.',
-    image: 'https://cdn.vuetifyjs.com/images/cards/hotel.jpg',
-    buttonText: 'Saiba Mais',
+    title: 'Curso Gerenciamento Ambiental de Empresas (INDIVIDUAL)',
+    price: 'BRL 1.151,00',
+    oldPrice: 'BRL 1.550,00',
+    description: 'O curso perfeito para um gestor se tornar um ESG qualificado para sua empresa ser sustentável e com lucros visíveis.',
+    image: curso001,
     loading: false
   },
   {
-    title: 'Gestão de Resíduos',
-    description: 'Soluções completas para gestão e tratamento de resíduos industriais e comerciais. Desenvolvemos planos de redução, reutilização e reciclagem que minimizam impactos ambientais e reduzem custos operacionais.',
-    image: 'https://cdn.vuetifyjs.com/images/cards/docks.jpg',
-    buttonText: 'Saiba Mais',
+    title: 'Curso Boas Praticas Manipulação de Alimentos (INDIVIDUAL)',
+    price: 'BRL 251,00',
+    oldPrice: 'BRL 350,00',
+    description: 'Curso amplamente utilizado para empresas de restaurantes e alimentícios no geral.',
+    image: curso001,
     loading: false
   },
   {
-    title: 'Certificação ISO 14001',
-    description: 'Auxiliamos empresas na implementação e certificação do sistema de gestão ambiental ISO 14001. Nossa equipe especializada garante que todos os requisitos sejam atendidos de forma eficiente e duradoura.',
-    image: 'https://cdn.vuetifyjs.com/images/cards/sunshine.jpg',
-    buttonText: 'Saiba Mais',
+    title: 'Curso Educação Ambiental sobre Resíduos Gerados na Empresa (INDIVIDUAL)',
+    price: 'BRL 551,00',
+    oldPrice: 'BRL 850,00',
+    description: 'Curso amplamente utilizado e de qualidade para lucros eficientes de colaboradores na sua empresa.',
+    image: curso001,
     loading: false
   },
   {
-    title: 'Treinamento e Capacitação',
-    description: 'Programas de treinamento desenvolvidos para capacitar equipes em práticas ambientais sustentáveis. Oferecemos cursos personalizados que atendem às necessidades específicas de cada organização.',
-    image: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
-    buttonText: 'Saiba Mais',
+    title: 'Curso Manipulação e Higiene de Alimentos (INDIVIDUAL)',
+    price: 'BRL 251,00',
+    oldPrice: 'BRL 350,00',
+    description: 'Curso exigido para todos os cargos efetivos de cozinha pública ou privada.',
+    image: curso001,
     loading: false
   },
   {
-    title: 'Monitoramento Contínuo',
-    description: 'Serviço de monitoramento e acompanhamento contínuo do desempenho ambiental da sua empresa. Fornecemos relatórios periódicos e alertas para garantir que os objetivos ambientais sejam alcançados.',
-    image: 'https://cdn.vuetifyjs.com/images/cards/hotel.jpg',
-    buttonText: 'Saiba Mais',
+    title: 'Curso Determinantes Sociais em Saúde Pública (INDIVIDUAL)',
+    price: 'BRL 671,00',
+    oldPrice: 'BRL 882,00',
+    description: 'Curso utilizado para formação de profissionais da saúde, amplamente acolhido no público e privado',
+    image: curso001,
     loading: false
   }
 ])
@@ -143,6 +157,31 @@ function reserve(index) {
   margin-top: 100vh;
 }
 
+.section-title {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding-top: 2rem;
+}
+
+.title-text {
+  font-family: 'Cardo', serif;
+  font-size: 3rem;
+  font-weight: 400;
+  color: #333;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .title-text {
+    font-size: 2rem;
+  }
+  
+  .section-title {
+    margin-bottom: 2rem;
+    padding-top: 1rem;
+  }
+}
+
 .card-simplified {
   height: 100%;
   display: flex;
@@ -154,6 +193,40 @@ function reserve(index) {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
+}
+
+.price-button {
+  background-color: #2e7d32 !important;
+  color: white !important;
+  font-weight: bold !important;
+  height: auto !important;
+  min-height: 48px !important;
+  padding: 12px 16px !important;
+}
+
+.price-button:hover {
+  background-color: #1b5e20 !important;
+}
+
+.button-price-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.current-price {
+  font-size: 1.1rem;
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+.old-price-text {
+  font-size: 0.85rem;
+  text-decoration: line-through;
+  opacity: 0.8;
+  margin-top: 4px;
+  font-weight: normal;
 }
 
 .card-description {

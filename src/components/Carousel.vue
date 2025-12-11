@@ -27,15 +27,15 @@ import slide003 from '../assets/slide003.png'
 const carouselSlides = [
   {
     image: slide001,
-    title: 'LUAR AMBIENTAL'
+    title: 'Conheça nossos planos'
   },
   {
     image: slide002,
-    title: 'LUAR AMBIENTAL'
+    title: 'Atendemos em todo o Brasil'
   },
   {
     image: slide003,
-    title: 'LUAR AMBIENTAL'
+    title: 'Licenciamento Ambiental'
   }
 ]
 </script>
@@ -125,7 +125,7 @@ const carouselSlides = [
 /* Estilização do texto sobreposto */
 .carousel-text-overlay {
   position: absolute;
-  top: 30%;
+  top: 65%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
@@ -133,22 +133,25 @@ const carouselSlides = [
   color: whitesmoke;
   padding: 2rem;
   max-width: 90%;
+  width: 100%;
 }
 
 .carousel-title {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  font-size: 3rem;
-  font-weight: 300;
-  letter-spacing: 0.05em;
+  font-family: 'Cardo', serif;
+  font-size: 4.5rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
   line-height: 1.2;
-  margin: 0;
-  text-transform: uppercase;
+  margin: 0 auto;
+  text-align: center;
+  text-transform: none;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7), 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
 @media (max-width: 768px) {
   .carousel-title {
-    font-size: 2rem;
-    letter-spacing: 0.03em;
+    font-size: 3rem;
+    letter-spacing: 0.01em;
   }
   
   .carousel-text-overlay {
