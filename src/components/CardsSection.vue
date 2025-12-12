@@ -13,20 +13,11 @@
           md="4"
         >
           <v-card
-            :disabled="card.loading"
-            :loading="card.loading"
             class="mx-auto card-simplified"
             height="100%"
+            style="cursor: pointer;"
+            @click="openModal(index)"
           >
-            <template v-slot:loader="{ isActive }">
-              <v-progress-linear
-                :active="isActive"
-                color="deep-purple"
-                height="4"
-                indeterminate
-              ></v-progress-linear>
-            </template>
-
             <v-img
               v-if="card.image"
               class="card-image"
@@ -46,7 +37,7 @@
               <v-btn
                 class="price-button"
                 block
-                @click="reserve(index)"
+                @click="openModal(index)"
               >
                 <div class="button-price-content">
                   <span class="current-price">{{ card.price }}</span>
@@ -58,11 +49,100 @@
         </v-col>
       </v-row>
     </v-container>
+
+    <!-- Modal de Detalhes do Curso/Plano -->
+    <v-dialog
+      v-model="dialog"
+      max-width="800"
+      scrollable
+      persistent
+    >
+      <v-card v-if="selectedCard">
+        <v-card-title class="d-flex align-center justify-space-between pa-4">
+          <span class="text-h5">{{ selectedCard.title }}</span>
+          <v-btn
+            icon
+            variant="text"
+            @click="closeModal"
+          >
+            <v-icon>mdi-close</v-icon>
+          </v-btn>
+        </v-card-title>
+
+        <v-divider></v-divider>
+
+        <v-card-text class="pa-6">
+          <div class="mb-4">
+            <v-img
+              v-if="selectedCard.image"
+              :src="selectedCard.image"
+              height="300"
+              cover
+              class="mb-4 rounded"
+            ></v-img>
+          </div>
+
+          <div class="mb-4">
+            <h3 class="text-h6 mb-2">Descrição Completa</h3>
+            <p class="text-body-1">{{ selectedCard.fullDescription || selectedCard.description }}</p>
+          </div>
+
+          <div class="mb-4">
+            <h3 class="text-h6 mb-2">Investimento</h3>
+            <div class="d-flex align-center gap-3">
+              <span class="text-h5 font-weight-bold text-primary">{{ selectedCard.price }}</span>
+              <span v-if="selectedCard.oldPrice" class="text-body-1 text-decoration-line-through text-medium-emphasis">
+                {{ selectedCard.oldPrice }}
+              </span>
+            </div>
+          </div>
+
+          <div v-if="selectedCard.benefits" class="mb-4">
+            <h3 class="text-h6 mb-2">Benefícios Incluídos</h3>
+            <v-list density="compact">
+              <v-list-item
+                v-for="(benefit, idx) in selectedCard.benefits"
+                :key="idx"
+                class="pa-0"
+              >
+                <v-list-item-title class="text-body-2">
+                  <v-icon size="small" color="success" class="me-2">mdi-check-circle</v-icon>
+                  {{ benefit }}
+                </v-list-item-title>
+              </v-list-item>
+            </v-list>
+          </div>
+        </v-card-text>
+
+        <v-divider></v-divider>
+
+        <v-card-actions class="pa-4">
+          <v-spacer></v-spacer>
+          <v-btn
+            variant="text"
+            @click="closeModal"
+          >
+            Fechar
+          </v-btn>
+          <v-btn
+            color="green-darken-2"
+            variant="flat"
+            size="large"
+            :href="whatsappLink"
+            target="_blank"
+            @click="closeModal"
+          >
+            <i class="bi bi-whatsapp me-2"></i>
+            Falar no WhatsApp
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import curso001 from '../assets/curso001.jpg'
 import curso002 from '../assets/cursos002.jpg'
 import curso003 from '../assets/cursos003.jpg'
@@ -73,6 +153,41 @@ import curso007 from '../assets/cursos007.jpg'
 import curso008 from '../assets/cursos008.jpg'
 import curso009 from '../assets/cursos009.jpg'
 
+const dialog = ref(false)
+const selectedCardIndex = ref(null)
+
+const selectedCard = computed(() => {
+  if (selectedCardIndex.value !== null) {
+    return cards.value[selectedCardIndex.value]
+  }
+  return null
+})
+
+const whatsappNumber = ref('5511999999999') // Substitua pelo número real
+const whatsappMessage = computed(() => {
+  if (selectedCard.value) {
+    return `Olá! Gostaria de saber mais sobre: ${selectedCard.value.title}`
+  }
+  return 'Olá! Gostaria de saber mais sobre os serviços da Luar Ambiental.'
+})
+
+const whatsappLink = computed(() => {
+  const message = encodeURIComponent(whatsappMessage.value)
+  return `https://wa.me/${whatsappNumber.value}?text=${message}`
+})
+
+function openModal(index) {
+  selectedCardIndex.value = index
+  dialog.value = true
+}
+
+function closeModal() {
+  dialog.value = false
+  setTimeout(() => {
+    selectedCardIndex.value = null
+  }, 300)
+}
+
 
 
 const cards = ref([
@@ -80,78 +195,134 @@ const cards = ref([
     title: 'Plano Básico',
     price: 'BRL 49,90',
     description: 'O plano perfeito para a empresa que não quer mais dor de cabeça com cursos exigidos pelas diferentes fiscalizações municipais, estaduais e federais.',
+    fullDescription: 'O plano perfeito para a empresa que não quer mais dor de cabeça com cursos exigidos pelas diferentes fiscalizações municipais, estaduais e federais. Este plano oferece acesso completo a todos os cursos necessários para manter sua empresa em conformidade com as exigências legais, sem preocupações com prazos ou atualizações.',
     image: curso001,
-    loading: false
+    benefits: [
+      'Acesso a todos os cursos exigidos por fiscalizações',
+      'Atualizações automáticas de conteúdo',
+      'Certificados válidos em todo território nacional',
+      'Suporte técnico especializado'
+    ]
   },
   {
     title: 'Plano Essencial',
     price: 'BRL 650,00',
     description: 'O plano ideal para a sua empresa ter todos os itens necessários sanitários exigidos pela vigilância sanitária local, verifique a disponibilidade na sua cidade atualmente atendemos Foz do Iguaçu/PR e Niterói/RJ',
+    fullDescription: 'O plano ideal para a sua empresa ter todos os itens necessários sanitários exigidos pela vigilância sanitária local. Este plano inclui documentação completa, treinamentos específicos e acompanhamento para garantir que sua empresa esteja sempre em conformidade. Verifique a disponibilidade na sua cidade - atualmente atendemos Foz do Iguaçu/PR e Niterói/RJ.',
     image: curso002,
-    loading: false
+    benefits: [
+      'Documentação sanitária completa',
+      'Treinamentos específicos para sua área',
+      'Acompanhamento contínuo',
+      'Atendimento presencial nas cidades atendidas'
+    ]
   },
   {
     title: 'Plano Completo',
     price: 'BRL 980,00',
     description: 'O mais aclamado por todas as empresas de grande porte, tem tudo incluído desde sanitários a PGRS ou PGRCC o perfil que mais se enquadra na maioria, não quer ter problemas com multas, escolha este de olhos fechados para que não se preocupe depois!',
+    fullDescription: 'O mais aclamado por todas as empresas de grande porte. Este plano tem tudo incluído desde documentação sanitária até PGRS (Plano de Gerenciamento de Resíduos Sólidos) ou PGRCC (Plano de Gerenciamento de Resíduos da Construção Civil). O perfil que mais se enquadra na maioria das empresas. Não quer ter problemas com multas? Escolha este de olhos fechados para que não se preocupe depois! Inclui auditorias regulares, consultoria especializada e suporte prioritário.',
     image: curso003,
-    loading: false
+    benefits: [
+      'PGRS ou PGRCC completo',
+      'Documentação sanitária',
+      'Auditorias regulares',
+      'Consultoria especializada',
+      'Suporte prioritário 24/7',
+      'Treinamentos para toda equipe'
+    ]
   },
   {
     title: 'Plano Avançado',
     price: 'BRL 3.508,00',
     description: 'Plano mais eficaz para área da saúde ambiental, tudo incluso e acompanhamento contínuo, os valores podem sofrer alterações de acordo com seu tamanho ou produção de resíduos.',
+    fullDescription: 'Plano mais eficaz para área da saúde ambiental. Tudo incluso e acompanhamento contínuo. Este plano é ideal para empresas do setor de saúde que precisam de gestão ambiental completa e especializada. Os valores podem sofrer alterações de acordo com seu tamanho ou produção de resíduos. Inclui gestão completa de resíduos de saúde, treinamentos especializados e certificações específicas do setor.',
     image: curso004,
-    loading: false
+    benefits: [
+      'Gestão completa de resíduos de saúde',
+      'Treinamentos especializados',
+      'Certificações específicas do setor',
+      'Acompanhamento contínuo personalizado',
+      'Consultoria técnica especializada',
+      'Plano customizado conforme necessidade'
+    ]
   },
   {
     title: 'Curso Gerenciamento Ambiental de Empresas (INDIVIDUAL)',
     price: 'BRL 1.151,00',
     oldPrice: 'BRL 1.550,00',
     description: 'O curso perfeito para um gestor se tornar um ESG qualificado para sua empresa ser sustentável e com lucros visíveis.',
+    fullDescription: 'O curso perfeito para um gestor se tornar um ESG qualificado para sua empresa ser sustentável e com lucros visíveis. Este curso individual oferece capacitação completa em gestão ambiental empresarial, abordando práticas sustentáveis, certificações ambientais, gestão de resíduos e estratégias para tornar sua empresa mais competitiva através da sustentabilidade.',
     image: curso005,
-    loading: false
+    benefits: [
+      'Certificado reconhecido nacionalmente',
+      'Material didático completo',
+      'Acesso vitalício ao conteúdo',
+      'Suporte durante o curso',
+      'Aplicação prática imediata'
+    ]
   },
   {
     title: 'Curso Boas Praticas Manipulação de Alimentos (INDIVIDUAL)',
     price: 'BRL 251,00',
     oldPrice: 'BRL 350,00',
     description: 'Curso amplamente utilizado para empresas de restaurantes e alimentícios no geral.',
+    fullDescription: 'Curso amplamente utilizado para empresas de restaurantes e alimentícios no geral. Este curso individual capacita profissionais do setor alimentício nas melhores práticas de manipulação de alimentos, garantindo segurança alimentar, qualidade e conformidade com as normas da vigilância sanitária.',
     image: curso006,
-    loading: false
+    benefits: [
+      'Certificado válido para vigilância sanitária',
+      'Conteúdo atualizado com normas vigentes',
+      'Acesso online ilimitado',
+      'Material de apoio completo'
+    ]
   },
   {
     title: 'Curso Educação Ambiental sobre Resíduos Gerados na Empresa (INDIVIDUAL)',
     price: 'BRL 551,00',
     oldPrice: 'BRL 850,00',
     description: 'Curso amplamente utilizado e de qualidade para lucros eficientes de colaboradores na sua empresa.',
+    fullDescription: 'Curso amplamente utilizado e de qualidade para lucros eficientes de colaboradores na sua empresa. Este curso individual foca na educação ambiental sobre resíduos gerados na empresa, capacitando colaboradores para práticas sustentáveis, redução de desperdícios e gestão eficiente de resíduos, resultando em economia e melhor desempenho ambiental.',
     image: curso007,
-    loading: false
+    benefits: [
+      'Capacitação completa em gestão de resíduos',
+      'Redução de custos operacionais',
+      'Certificado para toda equipe',
+      'Material prático e aplicável',
+      'Acompanhamento pós-curso'
+    ]
   },
   {
     title: 'Curso Manipulação e Higiene de Alimentos (INDIVIDUAL)',
     price: 'BRL 251,00',
     oldPrice: 'BRL 350,00',
     description: 'Curso exigido para todos os cargos efetivos de cozinha pública ou privada.',
+    fullDescription: 'Curso exigido para todos os cargos efetivos de cozinha pública ou privada. Este curso individual atende às exigências legais para profissionais que trabalham com manipulação de alimentos, cobrindo normas de higiene, segurança alimentar, boas práticas de fabricação e procedimentos sanitários essenciais.',
     image: curso008,
-    loading: false
+    benefits: [
+      'Atende exigências legais',
+      'Certificado reconhecido',
+      'Válido para cozinhas públicas e privadas',
+      'Conteúdo prático e objetivo',
+      'Acesso imediato após compra'
+    ]
   },
   {
     title: 'Curso Determinantes Sociais em Saúde Pública (INDIVIDUAL)',
     price: 'BRL 671,00',
     oldPrice: 'BRL 882,00',
     description: 'Curso utilizado para formação de profissionais da saúde, amplamente acolhido no público e privado',
+    fullDescription: 'Curso utilizado para formação de profissionais da saúde, amplamente acolhido no público e privado. Este curso individual aborda os determinantes sociais em saúde pública, capacitando profissionais da área da saúde para compreender e atuar sobre os fatores sociais que influenciam a saúde das populações, essencial para profissionais que trabalham em saúde coletiva, atenção primária e gestão em saúde.',
     image: curso009,
-    loading: false
+    benefits: [
+      'Reconhecido no setor público e privado',
+      'Certificado válido para progressão',
+      'Conteúdo atualizado e relevante',
+      'Aplicação prática imediata',
+      'Suporte especializado'
+    ]
   }
 ])
 
-function reserve(index) {
-  cards.value[index].loading = true
-  setTimeout(() => {
-    cards.value[index].loading = false
-  }, 2000)
-}
 </script>
 
 <style scoped>
