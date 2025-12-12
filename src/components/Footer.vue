@@ -101,7 +101,7 @@
 import { ref, computed } from 'vue'
 
 const companyInfo = ref({
-  description: 'Soluções ambientais com mais de 28 anos de experiência. Comprometidos com a sustentabilidade e excelência em serviços.',
+  description: 'Soluções ambientais criada em 2023. Comprometidos com a sustentabilidade e excelência em serviços.',
   address: 'Rua Exemplo, 123 - Cidade, Estado - CEP 12345-678',
   phone: '(00) 0000-0000',
   email: 'contato@luarambiental.com.br'

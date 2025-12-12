@@ -4,10 +4,13 @@
       <!-- Texto acima do carousel -->
       <div class="text-center mb-8 section-header">
         <h2 class="text-h4 font-weight-bold mb-2">
-          + DE 150 CLIENTES SATISFEITOS
+          + 20 clientes
+        </h2>
+        <h2 class="text-h4 font-weight-bold mb-2">
+          15 fornecedores diretos
         </h2>
         <h2 class="text-h4 font-weight-bold">
-          + DE 28 ANOS DE ATUAÇÃO
+          Criada em 2023
         </h2>
       </div>
 
@@ -55,6 +58,13 @@
 <script setup>
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useDisplay } from 'vuetify'
+import cliente001 from '../assets/cliente001.jpg'
+import cliente002 from '../assets/cliente002.jpg'
+import cliente003 from '../assets/cliente003.jpg'
+import cliente004 from '../assets/cliente004.jpg'
+import cliente005 from '../assets/cliente005.png'
+import cliente006 from '../assets/cliente006.png'
+import cliente007 from '../assets/cliente007.png'
 
 const display = useDisplay()
 const scrollContainer = ref(null)
@@ -64,51 +74,31 @@ const animationFrameId = ref(null)
 const clients = ref([
   {
     name: 'Cliente 1',
-    logo: 'https://cdn.vuetifyjs.com/images/cards/docks.jpg'
+    logo: cliente001
   },
   {
     name: 'Cliente 2',
-    logo: 'https://cdn.vuetifyjs.com/images/cards/hotel.jpg'
+    logo: cliente002
   },
   {
     name: 'Cliente 3',
-    logo: 'https://cdn.vuetifyjs.com/images/cards/sunshine.jpg'
+    logo: cliente003
   },
   {
     name: 'Cliente 4',
-    logo: 'https://cdn.vuetifyjs.com/images/cards/cooking.png'
+    logo: cliente004
   },
   {
     name: 'Cliente 5',
-    logo: 'https://cdn.vuetifyjs.com/images/cards/docks.jpg'
+    logo: cliente005
   },
   {
     name: 'Cliente 6',
-    logo: 'https://cdn.vuetifyjs.com/images/cards/hotel.jpg'
+    logo: cliente006
   },
   {
     name: 'Cliente 7',
-    logo: 'https://cdn.vuetifyjs.com/images/cards/sunshine.jpg'
-  },
-  {
-    name: 'Cliente 8',
-    logo: 'https://cdn.vuetifyjs.com/images/cards/cooking.png'
-  },
-  {
-    name: 'Cliente 9',
-    logo: 'https://cdn.vuetifyjs.com/images/cards/docks.jpg'
-  },
-  {
-    name: 'Cliente 10',
-    logo: 'https://cdn.vuetifyjs.com/images/cards/hotel.jpg'
-  },
-  {
-    name: 'Cliente 11',
-    logo: 'https://cdn.vuetifyjs.com/images/cards/sunshine.jpg'
-  },
-  {
-    name: 'Cliente 12',
-    logo: 'https://cdn.vuetifyjs.com/images/cards/cooking.png'
+    logo: cliente007
   }
 ])
 

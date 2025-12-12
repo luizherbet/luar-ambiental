@@ -58,34 +58,38 @@
 
 <script setup>
 import { ref } from 'vue'
+import equipe001 from '../assets/equipe001.jpeg'
+import equipe002 from '../assets/equipe002.avif'
+import equipe003 from '../assets/equipe003.jpg'
+import equipe004 from '../assets/equipe004.avif'
 
 const aboutText = ref(
-  'Somos uma empresa especializada em soluções ambientais, com mais de 28 anos de experiência no mercado. Nossa missão é proporcionar serviços de excelência, sempre priorizando a sustentabilidade e o cuidado com o meio ambiente. Trabalhamos com dedicação e comprometimento para atender nossos clientes com as melhores soluções do mercado.'
+  'Somos uma empresa especializada em soluções ambientais, criada em 2023. Nossa missão é proporcionar serviços de excelência, sempre priorizando a sustentabilidade e o cuidado com o meio ambiente. Trabalhamos com dedicação e comprometimento para atender nossos clientes com as melhores soluções do mercado.'
 )
 
 const teamMembers = ref([
   {
     name: 'João Silva',
     role: 'Diretor Executivo',
-    photo: 'https://cdn.vuetifyjs.com/images/cards/docks.jpg',
+    photo: equipe001,
     description: 'Engenheiro Ambiental com mais de 20 anos de experiência em gestão ambiental e sustentabilidade. Especialista em projetos de grande porte.'
   },
   {
     name: 'Maria Santos',
     role: 'Coordenadora de Projetos',
-    photo: 'https://cdn.vuetifyjs.com/images/cards/hotel.jpg',
+    photo: equipe002,
     description: 'Mestre em Engenharia Ambiental, com foco em gestão de resíduos e tratamento de efluentes. Lidera equipes multidisciplinares há 15 anos.'
   },
   {
     name: 'Pedro Oliveira',
     role: 'Especialista em Consultoria',
-    photo: 'https://cdn.vuetifyjs.com/images/cards/sunshine.jpg',
+    photo: equipe003,
     description: 'Consultor ambiental certificado, especializado em licenciamento ambiental e estudos de impacto. Mais de 12 anos de atuação no setor.'
   },
   {
     name: 'Ana Costa',
     role: 'Gerente de Operações',
-    photo: 'https://cdn.vuetifyjs.com/images/cards/cooking.png',
+    photo: equipe004,
     description: 'Engenheira Química com MBA em Gestão de Operações. Responsável pela execução e monitoramento de projetos ambientais há 10 anos.'
   }
 ])
