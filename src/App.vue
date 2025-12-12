@@ -19,6 +19,9 @@
     
     <!-- Rodapé -->
     <Footer />
+    
+    <!-- Botão Flutuante de Newsletter -->
+    <NewsletterButton />
   </div>
 </template>
 <script>
@@ -28,6 +31,7 @@ import CardsSection from './components/CardsSection.vue';
 import ClientsCarousel from './components/ClientsCarousel.vue';
 import AboutUs from './components/AboutUs.vue';
 import Footer from './components/Footer.vue';
+import NewsletterButton from './components/NewsletterButton.vue';
 
 export default {
   name: "App",
@@ -38,6 +42,7 @@ export default {
     ClientsCarousel,
     AboutUs,
     Footer,
+    NewsletterButton,
   }
 }
 </script>

@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@headlessui/vue": "^1.7.23",
-    "@heroicons/vue": "^2.2.0",
     "bootstrap-icons": "^1.13.1",
     "lucide-vue": "^0.517.0",
     "lucide-vue-next": "^0.556.0",

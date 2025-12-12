@@ -34,8 +34,8 @@
               cover
             ></v-img>
 
-            <v-card-item>
-              <v-card-title>{{ card.title }}</v-card-title>
+            <v-card-item class="card-title-container">
+              <v-card-title class="card-title-text">{{ card.title }}</v-card-title>
             </v-card-item>
 
             <v-card-text class="card-description">
@@ -66,6 +66,12 @@ import { ref } from 'vue'
 import curso001 from '../assets/curso001.jpg'
 import curso002 from '../assets/cursos002.jpg'
 import curso003 from '../assets/cursos003.jpg'
+import curso004 from '../assets/cursos004.jpg'
+import curso005 from '../assets/cursos005.jpg'
+import curso006 from '../assets/cursos006.jpg'
+import curso007 from '../assets/cursos007.jpg'
+import curso008 from '../assets/cursos008.jpg'
+import curso009 from '../assets/cursos009.jpg'
 
 
 
@@ -95,7 +101,7 @@ const cards = ref([
     title: 'Plano Avançado',
     price: 'BRL 3.508,00',
     description: 'Plano mais eficaz para área da saúde ambiental, tudo incluso e acompanhamento contínuo, os valores podem sofrer alterações de acordo com seu tamanho ou produção de resíduos.',
-    image: curso001,
+    image: curso004,
     loading: false
   },
   {
@@ -103,7 +109,7 @@ const cards = ref([
     price: 'BRL 1.151,00',
     oldPrice: 'BRL 1.550,00',
     description: 'O curso perfeito para um gestor se tornar um ESG qualificado para sua empresa ser sustentável e com lucros visíveis.',
-    image: curso001,
+    image: curso005,
     loading: false
   },
   {
@@ -111,7 +117,7 @@ const cards = ref([
     price: 'BRL 251,00',
     oldPrice: 'BRL 350,00',
     description: 'Curso amplamente utilizado para empresas de restaurantes e alimentícios no geral.',
-    image: curso001,
+    image: curso006,
     loading: false
   },
   {
@@ -119,7 +125,7 @@ const cards = ref([
     price: 'BRL 551,00',
     oldPrice: 'BRL 850,00',
     description: 'Curso amplamente utilizado e de qualidade para lucros eficientes de colaboradores na sua empresa.',
-    image: curso001,
+    image: curso007,
     loading: false
   },
   {
@@ -127,7 +133,7 @@ const cards = ref([
     price: 'BRL 251,00',
     oldPrice: 'BRL 350,00',
     description: 'Curso exigido para todos os cargos efetivos de cozinha pública ou privada.',
-    image: curso001,
+    image: curso008,
     loading: false
   },
   {
@@ -135,7 +141,7 @@ const cards = ref([
     price: 'BRL 671,00',
     oldPrice: 'BRL 882,00',
     description: 'Curso utilizado para formação de profissionais da saúde, amplamente acolhido no público e privado',
-    image: curso001,
+    image: curso009,
     loading: false
   }
 ])
@@ -256,6 +262,25 @@ function reserve(index) {
   width: 100% !important;
   height: 250px !important;
   object-fit: cover !important;
+}
+
+.card-title-container {
+  min-height: auto;
+  padding-bottom: 1rem;
+}
+
+.card-title-text {
+  white-space: normal !important;
+  word-wrap: break-word !important;
+  overflow: visible !important;
+  text-overflow: unset !important;
+  line-height: 1.4 !important;
+  font-size: 1.1rem !important;
+  height: auto !important;
+  max-height: none !important;
+  display: block !important;
+  -webkit-line-clamp: unset !important;
+  -webkit-box-orient: unset !important;
 }
 </style>
 
