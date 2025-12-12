@@ -20,14 +20,13 @@
       <!-- Seção da Equipe -->
       <div class="team-section">
         <h3 class="text-h4 font-weight-bold text-center mb-8">Nossa Equipe</h3>
-        <v-row justify="center" class="gap-4">
+        <v-row justify="start">
           <v-col
             v-for="(member, index) in teamMembers"
             :key="index"
             cols="12"
             sm="6"
-            md="4"
-            lg="3"
+            md="3"
           >
             <v-card class="team-card text-center" elevation="2">
               <v-img
@@ -104,6 +103,17 @@ const teamMembers = ref([
 
 .text-section {
   margin-bottom: 3rem;
+}
+
+.team-section :deep(.v-row) {
+  margin: 0;
+}
+
+@media (min-width: 960px) {
+  .team-section :deep(.v-col-md-3) {
+    flex: 0 0 25% !important;
+    max-width: 25% !important;
+  }
 }
 
 .team-card {
