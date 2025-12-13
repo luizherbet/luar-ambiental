@@ -6,8 +6,8 @@
     @click="dialog = true"
     aria-label="Newsletter"
   >
-    <i class="bi bi-envelope email-icon"></i>
-    Newsletter
+    <i class="bi bi-envelope email-icon pr-2"></i>
+    Novidades por e-mail
   </v-btn>
 
   <!-- Dialog/Modal -->
