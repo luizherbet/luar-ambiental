@@ -7,7 +7,7 @@
     aria-label="Newsletter"
   >
     <i class="bi bi-envelope email-icon pr-2"></i>
-    Novidades por e-mail
+    Cadastre-se!
   </v-btn>
 
   <!-- Dialog/Modal -->
