@@ -12,17 +12,45 @@
       :src="slide.image"
       class="carousel-item-image"
     >
-      <div class="carousel-text-overlay">
-        <h2 class="carousel-title">{{ slide.title }}</h2>
+      <div class="carousel-text-overlay" :class="{ 'special-slide': slide.special }">
+        <h2 
+          v-if="!slide.special"
+          class="carousel-title"
+        >{{ slide.title }}</h2>
+        <h2 
+          v-else
+          class="carousel-title-special"
+          v-html="slide.title"
+        ></h2>
+        <v-btn
+          v-if="slide.special"
+          class="contact-button mt-4"
+          color=""
+          size="large"
+          rounded-lg
+          :href="whatsappLink"
+          target="_blank"
+        >
+          Entre em contato
+        </v-btn>
       </div>
     </v-carousel-item>
   </v-carousel>
 </template>
 
 <script setup>
+import { computed } from 'vue'
 import slide001 from '../assets/slide001.png'
 import slide002 from '../assets/slide002.png'
 import slide003 from '../assets/slide003.png'
+import slide004 from '../assets/slide004.png'
+
+const whatsappNumber = '554591365793'
+const whatsappMessage = 'Olá! Gostaria de saber mais sobre oportunidades de representante.'
+const whatsappLink = computed(() => {
+  const message = encodeURIComponent(whatsappMessage)
+  return `https://wa.me/${whatsappNumber}?text=${message}`
+})
 
 const carouselSlides = [
   {
@@ -36,6 +64,11 @@ const carouselSlides = [
   {
     image: slide003,
     title: 'Licenciamento Ambiental'
+  },
+  {
+    image: slide004,
+    title: 'Você é Engenheiro Ambiental ou Biólogo?<br>Torne-se nosso representante.<br>Atuamos em todo o Brasil.',
+    special: true
   }
 ]
 </script>
@@ -125,7 +158,7 @@ const carouselSlides = [
 /* Estilização do texto sobreposto */
 .carousel-text-overlay {
   position: absolute;
-  top: 65%;
+  top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
@@ -157,6 +190,54 @@ const carouselSlides = [
   .carousel-text-overlay {
     padding: 1rem;
   }
+}
+
+/* Estilos para o slide especial */
+.carousel-title-special {
+  font-family: 'Cardo', serif;
+  font-size: 3rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.6;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  text-align: center;
+  text-transform: none;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7), 0 0 20px rgba(0, 0, 0, 0.5);
+  max-width: 1000px;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+}
+
+.carousel-title-special :deep(br) {
+  display: block;
+  content: "";
+  margin: 0.5em 0;
+}
+
+@media (max-width: 768px) {
+  .carousel-title-special {
+    font-size: 2rem;
+    letter-spacing: 0.01em;
+  }
+}
+
+.contact-button {
+  font-weight: 600 !important;
+  padding: 12px 32px !important;
+  text-transform: none !important;
+  background-color: #2e7d32 !important;
+  color: white !important;
+}
+
+.contact-button:hover {
+  background-color: #1b5e20 !important;
+}
+
+.special-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 </style>
 
