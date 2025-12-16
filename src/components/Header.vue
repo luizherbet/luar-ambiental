@@ -104,10 +104,13 @@ export default {
 }
 
 .logo-image {
-    max-height: 55px;
+    height: 65px;
     width: auto;
     object-fit: contain;
     display: block;
+    border: 1px solid gray;
+    border-radius: 100%;
+    margin-left: 10px;
 }
 
 @media (min-width: 768px) {
