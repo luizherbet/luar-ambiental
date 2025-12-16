@@ -9,16 +9,24 @@
     </div>
     
     <!-- Seção de Cards abaixo do carousel -->
-    <CardsSection />
+    <section id="servicos">
+      <CardsSection />
+    </section>
     
     <!-- Carousel de Clientes -->
-    <ClientsCarousel />
+    <section id="clientes">
+      <ClientsCarousel />
+    </section>
     
     <!-- Seção Sobre Nós -->
-    <AboutUs />
+    <section id="sobre-nos">
+      <AboutUs />
+    </section>
     
     <!-- Rodapé -->
-    <Footer />
+    <section id="contato">
+      <Footer />
+    </section>
     
     <!-- Botão Flutuante de Newsletter -->
     <NewsletterButton />

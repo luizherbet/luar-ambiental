@@ -2,7 +2,7 @@
   <div class="cards-section py-12 px-4">
     <v-container>
       <div class="section-title">
-        <h2 class="title-text">Conheça nossos cursos</h2>
+        <h2 class="title-text">Conheça nossos Serviços</h2>
       </div>
       <v-row justify="center">
         <v-col
@@ -14,7 +14,7 @@
         >
           <v-card
             class="mx-auto card-simplified"
-            height="100%"
+            height="90%"
             style="cursor: pointer;"
             @click="openModal(index)"
           >

@@ -27,7 +27,7 @@
             <!-- Menu de Links -->
             <ul class="uppercase font-bold text-sm py-3 px-6">
                 <li class="my-3 text-center" v-for="link in Links" :key="link.name">
-                    <a :href="link.link" class="hover:text-green-700 block">{{link.name}}</a>
+                    <a :href="link.link" @click="handleLinkClick($event, link.link)" class="hover:text-green-700 block">{{link.name}}</a>
                 </li>
             </ul>
             
@@ -43,7 +43,7 @@
         <div class="hidden md:flex md:items-center">
             <ul class="flex items-center gap-4 uppercase font-bold text-sm">
                 <li class="mx-1" v-for="link in Links" :key="link.name">
-                    <a :href="link.link" class="hover:text-green-700">{{link.name}}</a>
+                    <a :href="link.link" @click="handleLinkClick($event, link.link)" class="hover:text-green-700">{{link.name}}</a>
                 </li>
             </ul>
         </div>
@@ -64,16 +64,50 @@ export default {
     setup() {
         const open = ref(false)
         const Links = [
-            { name: "Serviços", link: "#" },
-            { name: "Clientes", link: "#" },
-            { name: "Sobre nós", link: "#" },
-            { name: "Contato", link: "#" },
+            { name: "Serviços", link: "#servicos" },
+            { name: "Clientes", link: "#clientes" },
+            { name: "Sobre nós", link: "#sobre-nos" },
+            { name: "Contato", link: "#contato" },
         ]
+
+        const handleLinkClick = (event, link) => {
+            if (link.startsWith('#')) {
+                event.preventDefault()
+                open.value = false // Fecha o menu mobile
+                
+                const targetId = link.substring(1)
+                const targetElement = document.getElementById(targetId)
+                
+                if (targetElement) {
+                    // Aguarda um pouco para garantir que o menu mobile fechou
+                    setTimeout(() => {
+                        let scrollPosition = 0
+                        const extraOffset = 80 // Offset adicional para ir um pouco mais abaixo
+                        
+                        if (targetId === 'servicos') {
+                            // Para serviços, precisa rolar até o final do carousel (100vh) + offset adicional
+                            scrollPosition = window.innerHeight + extraOffset
+                        } else {
+                            // Para outras seções, calcula a posição normal com offset adicional
+                            const headerHeight = 120
+                            const rect = targetElement.getBoundingClientRect()
+                            scrollPosition = rect.top + window.pageYOffset - headerHeight + extraOffset
+                        }
+                        
+                        window.scrollTo({
+                            top: Math.max(0, scrollPosition),
+                            behavior: 'smooth'
+                        })
+                    }, 100)
+                }
+            }
+        }
         
         return {
             Links,
             logo,
-            open
+            open,
+            handleLinkClick
         }
     }
 }
