@@ -150,7 +150,7 @@ onUnmounted(() => {
   background-color: #ffffff;
   position: relative;
   z-index: 5;
-  min-height: 400px;
+  min-height: 800px;
   padding-top: 4rem !important;
   padding-bottom: 4rem !important;
   display: flex;

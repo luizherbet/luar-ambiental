@@ -96,6 +96,7 @@ const teamMembers = ref([
 
 <style scoped>
 .about-section {
+  min-height: 800px;
   background-color: #f5f5f5;
   position: relative;
   z-index: 5;

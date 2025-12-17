@@ -104,6 +104,7 @@
 
 <script setup>
 import { ref } from 'vue'
+import { subscribeToNewsletter } from '../services/newsletterService'
 
 const dialog = ref(false)
 const submitted = ref(false)
@@ -139,6 +140,10 @@ const closeDialog = () => {
   }, 300)
 }
 
+// ID da lista do Brevo - obtenha no painel do Brevo
+// Para encontrar: https://app.brevo.com > Contacts > Lists > Clique na lista > O ID aparece na URL
+const BREVO_LIST_ID = 2 // ⚠️ SUBSTITUA pelo ID numérico real da sua lista (exemplo: 123)
+
 const submitNewsletter = async () => {
   if (!form.value) return
   
@@ -148,13 +153,8 @@ const submitNewsletter = async () => {
   loading.value = true
 
   try {
-    // Aqui você pode integrar com sua API de newsletter
-    // Exemplo: await newsletterService.subscribe(name.value, email.value)
-    
-    // Simulação de envio (remover quando integrar com API real)
-    await new Promise(resolve => setTimeout(resolve, 1500))
-    
-    console.log('Newsletter cadastrado:', { name: name.value, email: email.value })
+    // Chama o serviço de newsletter
+    await subscribeToNewsletter(email.value, name.value, BREVO_LIST_ID)
     
     submitted.value = true
   } catch (error) {
