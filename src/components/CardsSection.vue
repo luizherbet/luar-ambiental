@@ -163,7 +163,7 @@ const selectedCard = computed(() => {
   return null
 })
 
-const whatsappNumber = ref('5511999999999') // Substitua pelo número real
+const whatsappNumber = ref('5545991365793') // (45) 99136-5793
 const whatsappMessage = computed(() => {
   if (selectedCard.value) {
     return `Olá! Gostaria de saber mais sobre: ${selectedCard.value.title}`

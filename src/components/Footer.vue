@@ -77,9 +77,8 @@
           <!-- Horário de Atendimento -->
           <div class="text-body-2 text-grey-lighten-1">
             <v-icon color="white" size="small" class="me-2">mdi-clock-outline</v-icon>
-            <strong>Horário de Atendimento:</strong><br>
-            Segunda a Sexta: 8h às 18h<br>
-            Sábado: 8h às 12h
+            <strong>Horário de Funcionamento:</strong><br>
+            Consulte-nos para mais informações
           </div>
         </v-col>
       </v-row>
@@ -101,17 +100,17 @@
 import { ref, computed } from 'vue'
 
 const companyInfo = ref({
-  description: 'Soluções ambientais criada em 2023. Comprometidos com a sustentabilidade e excelência em serviços.',
-  address: 'Rua Exemplo, 123 - Cidade, Estado - CEP 12345-678',
-  phone: '(00) 0000-0000',
+  description: 'Serviço de saúde ambiental em Foz do Iguaçu, Paraná',
+  address: 'Tv. Cristiano Weirich, 91 - Centro, Foz do Iguaçu - PR, 85851-901',
+  phone: '(45) 99136-5793',
   email: 'contato@luarambiental.com.br'
 })
 
 const quickLinks = ref([
-  { name: 'Início', href: '#home' },
-  { name: 'Serviços', href: '#services' },
-  { name: 'Sobre Nós', href: '#about' },
-  { name: 'Contato', href: '#contact' }
+  { name: 'Início', href: '#servicos' },
+  { name: 'Serviços', href: '#servicos' },
+  { name: 'Sobre Nós', href: '#sobre-nos' },
+  { name: 'Contato', href: '#contato' }
 ])
 
 const socialMedia = ref([
@@ -120,7 +119,7 @@ const socialMedia = ref([
   { name: 'LinkedIn', url: 'https://linkedin.com', icon: 'mdi-linkedin', color: 'blue-darken-2' }
 ])
 
-const whatsappNumber = ref('5511999999999') // Substitua pelo número real (formato: código do país + DDD + número)
+const whatsappNumber = ref('5545991365793') // (45) 99136-5793
 const whatsappMessage = ref('Olá! Gostaria de saber mais sobre os serviços da Luar Ambiental.')
 
 const whatsappLink = computed(() => {

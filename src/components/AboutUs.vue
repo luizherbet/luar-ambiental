@@ -63,7 +63,7 @@ import equipe003 from '../assets/equipe003.jpg'
 import equipe004 from '../assets/equipe004.avif'
 
 const aboutText = ref(
-  'Somos uma empresa especializada em soluções ambientais, criada em 2023. Nossa missão é proporcionar serviços de excelência, sempre priorizando a sustentabilidade e o cuidado com o meio ambiente. Trabalhamos com dedicação e comprometimento para atender nossos clientes com as melhores soluções do mercado.'
+  'Somos uma empresa especializada em serviços de saúde ambiental em Foz do Iguaçu, Paraná, criada em 2023. Nossa missão é proporcionar serviços de excelência, sempre priorizando a sustentabilidade e o cuidado com o meio ambiente. Trabalhamos com dedicação e comprometimento para atender nossos clientes com as melhores soluções do mercado.'
 )
 
 const teamMembers = ref([

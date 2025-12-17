@@ -45,7 +45,7 @@ import slide002 from '../assets/slide002.png'
 import slide003 from '../assets/slide003.png'
 import slide004 from '../assets/slide004.png'
 
-const whatsappNumber = '554591365793'
+const whatsappNumber = '5545991365793' // (45) 99136-5793
 const whatsappMessage = 'Olá! Gostaria de saber mais sobre oportunidades de representante.'
 const whatsappLink = computed(() => {
   const message = encodeURIComponent(whatsappMessage)
