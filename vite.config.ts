@@ -8,4 +8,5 @@ export default defineConfig({
     vue(),
     vuetify({ autoImport: true })
   ],
+  base: '/', // Garante que os assets sejam servidos corretamente
 })
