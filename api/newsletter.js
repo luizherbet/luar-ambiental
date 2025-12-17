@@ -83,7 +83,10 @@ export default async function handler(req, res) {
         body: JSON.stringify({
           email: email.trim(),
           attributes: {
+            NOME: name.trim(),
+            NAME: name.trim(),
             FIRSTNAME: name.trim(),
+            SOBRENOME: '',
             LASTNAME: ''
           },
           listIds: [parseInt(listId) || 2],
