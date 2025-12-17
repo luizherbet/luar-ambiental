@@ -36,32 +36,28 @@ export async function subscribeToNewsletter(email, name, listId) {
       })
     })
 
-    // Verificar se a resposta é JSON
-    const contentType = response.headers.get('content-type')
-    let errorData, successData
+    // Ler resposta como texto primeiro para evitar erro de JSON
+    const responseText = await response.text()
+    let data
 
-    if (contentType && contentType.includes('application/json')) {
-      const data = await response.json()
+    // Tentar parsear como JSON
+    try {
+      data = responseText ? JSON.parse(responseText) : {}
+    } catch (parseError) {
+      // Se não for JSON, criar objeto de erro
+      console.error('Resposta não é JSON válido:', responseText)
       if (!response.ok) {
-        errorData = data
-      } else {
-        successData = data
+        throw new Error(responseText || `Erro ${response.status}: ${response.statusText}`)
       }
-    } else {
-      // Se não for JSON, ler como texto
-      const text = await response.text()
-      if (!response.ok) {
-        errorData = { message: text || 'Erro ao cadastrar newsletter' }
-      } else {
-        successData = { success: true, message: text || 'Cadastro realizado com sucesso' }
-      }
+      data = { success: true, message: responseText || 'Cadastro realizado' }
     }
 
     if (!response.ok) {
-      throw new Error(errorData?.message || `Erro ${response.status}: ${response.statusText}`)
+      const errorMessage = data.message || data.error || `Erro ${response.status}: ${response.statusText}`
+      throw new Error(errorMessage)
     }
 
-    return successData || { success: true }
+    return data
   } catch (error) {
     console.error('Erro ao cadastrar newsletter:', error)
     
