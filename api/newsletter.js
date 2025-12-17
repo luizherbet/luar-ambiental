@@ -26,7 +26,15 @@ export default async function handler(req, res) {
   }
 
   try {
-    const { email, name, listId } = await req.json()
+    // Ler o body corretamente (Vercel pode enviar como string ou objeto)
+    let body
+    if (typeof req.body === 'string') {
+      body = JSON.parse(req.body)
+    } else {
+      body = req.body
+    }
+    
+    const { email, name, listId } = body
 
     // Validar dados
     if (!email || !name) {

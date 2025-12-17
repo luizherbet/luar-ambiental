@@ -20,9 +20,8 @@ const BREVO_API_URL = 'https://api.brevo.com/v3/contacts'
  * @returns {Promise} Resposta da API
  */
 export async function subscribeToNewsletter(email, name, listId) {
-  // IMPORTANTE: Substitua esta URL pela URL do seu endpoint backend
-  // Exemplo: 'https://seu-dominio.com/api/newsletter'
-  const BACKEND_ENDPOINT = '/api/newsletter' // Ajuste para sua URL
+  // Endpoint relativo - funciona automaticamente no Vercel
+  const BACKEND_ENDPOINT = '/api/newsletter'
   
   try {
     const response = await fetch(BACKEND_ENDPOINT, {
@@ -37,14 +36,40 @@ export async function subscribeToNewsletter(email, name, listId) {
       })
     })
 
-    if (!response.ok) {
-      const error = await response.json()
-      throw new Error(error.message || 'Erro ao cadastrar newsletter')
+    // Verificar se a resposta é JSON
+    const contentType = response.headers.get('content-type')
+    let errorData, successData
+
+    if (contentType && contentType.includes('application/json')) {
+      const data = await response.json()
+      if (!response.ok) {
+        errorData = data
+      } else {
+        successData = data
+      }
+    } else {
+      // Se não for JSON, ler como texto
+      const text = await response.text()
+      if (!response.ok) {
+        errorData = { message: text || 'Erro ao cadastrar newsletter' }
+      } else {
+        successData = { success: true, message: text || 'Cadastro realizado com sucesso' }
+      }
     }
 
-    return await response.json()
+    if (!response.ok) {
+      throw new Error(errorData?.message || `Erro ${response.status}: ${response.statusText}`)
+    }
+
+    return successData || { success: true }
   } catch (error) {
     console.error('Erro ao cadastrar newsletter:', error)
+    
+    // Mensagens de erro mais amigáveis
+    if (error.message.includes('Failed to fetch') || error.message.includes('NetworkError')) {
+      throw new Error('Erro de conexão. Verifique sua internet e tente novamente.')
+    }
+    
     throw error
   }
 }

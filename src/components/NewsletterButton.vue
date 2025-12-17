@@ -154,12 +154,17 @@ const submitNewsletter = async () => {
 
   try {
     // Chama o serviço de newsletter
-    await subscribeToNewsletter(email.value, name.value, BREVO_LIST_ID)
+    const result = await subscribeToNewsletter(email.value, name.value, BREVO_LIST_ID)
     
-    submitted.value = true
+    if (result && result.success) {
+      submitted.value = true
+    } else {
+      throw new Error(result?.message || 'Erro desconhecido')
+    }
   } catch (error) {
     console.error('Erro ao cadastrar newsletter:', error)
-    alert('Erro ao cadastrar. Tente novamente.')
+    const errorMessage = error.message || 'Erro ao cadastrar. Verifique sua conexão e tente novamente.'
+    alert(errorMessage)
   } finally {
     loading.value = false
   }
