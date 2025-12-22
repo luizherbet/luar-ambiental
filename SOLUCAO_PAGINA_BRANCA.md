@@ -61,3 +61,5 @@ console.log('App carregado:', document.getElementById('app'))
 
 Se retornar `null`, o problema é no carregamento do HTML.
 Se retornar o elemento, o problema é no JavaScript.
+
+

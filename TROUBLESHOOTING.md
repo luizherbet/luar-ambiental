@@ -132,3 +132,5 @@ Se retornar erro, veja a mensagem para identificar o problema.
 2. Teste a API do Brevo diretamente (usando Postman ou curl)
 3. Verifique se o ID da lista (2) está correto no Brevo
 4. Veja os logs do Vercel para erros específicos
+
+

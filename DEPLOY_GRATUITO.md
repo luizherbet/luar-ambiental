@@ -87,3 +87,5 @@ O arquivo `newsletterService.js` já está configurado para usar `/api/newslette
 
 - Documentação Vercel: https://vercel.com/docs
 - Documentação Brevo: https://developers.brevo.com
+
+

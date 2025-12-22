@@ -23,8 +23,8 @@
           v-html="slide.title"
         ></h2>
         <v-btn
-          v-if="slide.special"
-          class="contact-button mt-4"
+          v-if="slide.special && slide.buttonType === 'whatsapp'"
+          class="contact-button mt-8"
           color=""
           size="large"
           rounded-lg
@@ -32,6 +32,17 @@
           target="_blank"
         >
           Entre em contato
+        </v-btn>
+        <v-btn
+          v-if="slide.special && slide.buttonType === 'appointment'"
+          class="contact-button mt-8"
+          color=""
+          size="large"
+          rounded-lg
+          :href="slide.appointmentLink"
+          target="_blank"
+        >
+          Marcar Agendamento
         </v-btn>
       </div>
     </v-carousel-item>
@@ -59,7 +70,10 @@ const carouselSlides = [
   },
   {
     image: slide002,
-    title: 'Atendemos em todo o Brasil'
+    title: 'Atendemos em todo o Brasil',
+    special: true,
+    buttonType: 'appointment',
+    appointmentLink: 'https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2t8b46fSRZelriTD4eYM1Pzi5asLPHOXwsRzdkbXq6OGEczvEou_9PRAodELfZ8bPGnG0lPXEB?gv=true'
   },
   {
     image: slide003,
@@ -68,7 +82,8 @@ const carouselSlides = [
   {
     image: slide004,
     title: 'Você é Engenheiro Ambiental ou Biólogo?<br>Torne-se nosso representante.<br>Atuamos em todo o Brasil.',
-    special: true
+    special: true,
+    buttonType: 'whatsapp'
   }
 ]
 </script>
@@ -223,15 +238,27 @@ const carouselSlides = [
 }
 
 .contact-button {
-  font-weight: 600 !important;
-  padding: 12px 32px !important;
+  font-weight: 500 !important;
+  padding: 8px 14px !important;
   text-transform: none !important;
-  background-color: #2e7d32 !important;
-  color: white !important;
+  background-color: white !important;
+  color: #333 !important;
+  font-size: 0.9rem !important;
+  border: 1px solid #e0e0e0 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+  transition: transform 0.2s ease !important;
 }
 
 .contact-button:hover {
-  background-color: #1b5e20 !important;
+  transform: scale(1.05) !important;
+  background-color: #f5f5f5 !important;
+}
+
+@media (max-width: 768px) {
+  .contact-button {
+    padding: 6px 12px !important;
+    font-size: 0.8rem !important;
+  }
 }
 
 .special-slide {

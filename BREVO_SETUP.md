@@ -196,3 +196,5 @@ const BREVO_LIST_ID = 123 // Substitua pelo ID real da sua lista
 
 - API Docs: https://developers.brevo.com/reference/createcontact
 - Dashboard: https://app.brevo.com
+
+
