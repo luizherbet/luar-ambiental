@@ -20,7 +20,7 @@
       <!-- Seção da Equipe -->
       <div class="team-section">
         <h3 class="text-h4 font-weight-bold text-center mb-12">Nossa Equipe</h3>
-        <v-row justify="start" class="team-row">
+        <v-row justify="center" class="team-row">
           <v-col
             v-for="(member, index) in teamMembers"
             :key="index"
@@ -118,6 +118,8 @@ const teamMembers = ref([
 .team-col {
   padding: 0 4px !important;
   margin-bottom: 16px;
+  display: flex;
+  justify-content: center;
 }
 
 @media (min-width: 960px) {
@@ -131,6 +133,7 @@ const teamMembers = ref([
   .team-col {
     margin-bottom: 0;
     padding: 0 4px !important;
+    justify-content: flex-start;
   }
 }
 
@@ -138,7 +141,8 @@ const teamMembers = ref([
   height: 100%;
   transition: transform 0.3s ease;
   max-width: 280px;
-  margin: 10px;
+  width: 100%;
+  margin: 10px auto;
 }
 
 .team-card:hover {
