@@ -90,7 +90,7 @@ const teamMembers = ref([
     name: 'Luiz Herbet',
     role: 'Marketing',
     photo: equipe004,
-    description: 'Engenheiro da Computação. Desevolvedor Full Stack, elabora a página web da Lauar Ambiental e o conteúdo para as redes sociais.'
+    description: 'Engenheiro da Computação e Desenvolvedor Full Stack, responsável pela elaboração do site institucional da Luar Ambiental e pela criação de conteúdo para as redes sociais.'
   }
 ])
 </script>
