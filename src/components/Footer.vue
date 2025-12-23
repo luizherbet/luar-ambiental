@@ -78,18 +78,16 @@
           <div class="social-media-container">
             <p class="text-body-2 text-grey-lighten-1 mb-2">Siga-nos nas redes sociais:</p>
             <div class="d-flex gap-2">
-              <v-btn
+              <a
                 v-for="(social, index) in socialMedia"
                 :key="index"
                 :href="social.url"
                 target="_blank"
-                class="social-button"
-                icon
-                variant="text"
-                size="default"
+                class="social-link"
+                :aria-label="social.name"
               >
-                <v-icon size="22">{{ social.icon }}</v-icon>
-              </v-btn>
+                <i :class="`${social.icon} social-icon`"></i>
+              </a>
             </div>
           </div>
         </v-col>
@@ -128,9 +126,10 @@ const quickLinks = ref([
 ])
 
 const socialMedia = ref([
-  { name: 'Instagram', url: 'https://instagram.com', icon: 'mdi-instagram', color: 'pink' },
-  { name: 'Facebook', url: 'https://facebook.com', icon: 'mdi-facebook', color: 'blue' },
-  { name: 'LinkedIn', url: 'https://linkedin.com', icon: 'mdi-linkedin', color: 'blue-darken-2' }
+  { name: 'Instagram', url: 'https://instagram.com', icon: 'bi-instagram' },
+  { name: 'Facebook', url: 'https://facebook.com', icon: 'bi-facebook' },
+  { name: 'TikTok', url: 'https://tiktok.com', icon: 'bi-tiktok' },
+  { name: 'LinkedIn', url: 'https://linkedin.com', icon: 'bi-linkedin' }
 ])
 
 const whatsappNumber = ref('5545991365793') // (45) 99136-5793
@@ -205,17 +204,26 @@ const currentYear = computed(() => new Date().getFullYear())
   margin-top: 1rem;
 }
 
-.social-button {
-  color: rgba(255, 255, 255, 0.7) !important;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-  width: 40px !important;
-  height: 40px !important;
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 50%;
 }
 
-.social-button:hover {
-  color: white !important;
+.social-link:hover {
+  color: white;
   transform: translateY(-3px) scale(1.1);
-  background-color: rgba(255, 255, 255, 0.15) !important;
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.social-icon {
+  font-size: 1.4rem;
 }
 
 @media (max-width: 768px) {
