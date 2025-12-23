@@ -58,8 +58,8 @@
 <script setup>
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useDisplay } from 'vuetify'
-import cliente001 from '../assets/cliente001.jpg'
-import cliente002 from '../assets/cliente002.jpg'
+import cliente001 from '../assets/cliente001.png'
+import cliente002 from '../assets/cliente002.png'
 import cliente003 from '../assets/cliente003.jpg'
 import cliente004 from '../assets/cliente004.jpg'
 import cliente005 from '../assets/cliente005.png'
