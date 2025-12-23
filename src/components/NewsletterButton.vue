@@ -6,8 +6,8 @@
     @click="dialog = true"
     aria-label="Newsletter"
   >
-    <i class="bi bi-envelope email-icon pr-2"></i>
-    Cadastre-se!
+    <i class="bi bi-envelope email-icon"></i>
+    <span class="newsletter-text">Cadastre-se!</span>
   </v-btn>
 
   <!-- Dialog/Modal -->
@@ -184,11 +184,12 @@ const submitNewsletter = async () => {
   font-weight: 500 !important;
   display: flex !important;
   align-items: center !important;
-  gap: 12px !important;
+  gap: 8px !important;
   background-color: white !important;
   color: #333 !important;
   font-size: 0.9rem !important;
   border: 1px solid #e0e0e0 !important;
+  overflow: hidden !important;
 }
 
 .newsletter-floating-btn:hover {
@@ -202,17 +203,64 @@ const submitNewsletter = async () => {
   color: #333;
 }
 
+.newsletter-text {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: textPulse 10s infinite;
+}
+
+@keyframes textPulse {
+  0%, 30% {
+    opacity: 1;
+    max-width: 120px;
+    padding-right: 0;
+  }
+  35%, 65% {
+    opacity: 0;
+    max-width: 0;
+    padding-right: 0;
+  }
+  70%, 100% {
+    opacity: 1;
+    max-width: 120px;
+    padding-right: 0;
+  }
+}
+
 @media (max-width: 768px) {
   .newsletter-floating-btn {
     bottom: 16px;
     right: 16px;
     padding: 6px 12px !important;
     font-size: 0.8rem !important;
-    gap: 10px !important;
+    gap: 6px !important;
   }
   
   .email-icon {
     font-size: 16px;
+  }
+  
+  .newsletter-text {
+    animation: textPulseMobile 10s infinite;
+  }
+  
+  @keyframes textPulseMobile {
+    0%, 30% {
+      opacity: 1;
+      max-width: 100px;
+      padding-right: 0;
+    }
+    35%, 65% {
+      opacity: 0;
+      max-width: 0;
+      padding-right: 0;
+    }
+    70%, 100% {
+      opacity: 1;
+      max-width: 100px;
+      padding-right: 0;
+    }
   }
 }
 </style>
