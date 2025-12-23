@@ -1,16 +1,136 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
+    <!-- =========================
+         CONFIGURAÇÕES BÁSICAS
+    ========================== -->
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cardo:wght@400;700&display=swap" rel="stylesheet">
-    <title>luar-ambiental</title>
+
+    <!-- =========================
+         CANONICAL + HTTPS (CRÍTICO)
+    ========================== -->
+    <link rel="canonical" href="https://www.luarambiental.com.br" />
+
+    <!-- =========================
+         TÍTULO OFICIAL DO SITE
+    ========================== -->
+    <title>Luar Ambiental | Consultoria e Soluções Ambientais</title>
+
+    <!-- =========================
+         SEO PRINCIPAL
+    ========================== -->
+    <meta
+      name="description"
+      content="Luar Ambiental é uma consultoria especializada na execução e monitoramento de projetos ambientais, licenciamento e gestão ambiental em Foz do Iguaçu – PR."
+    />
+    <meta
+      name="keywords"
+      content="Luar Ambiental, consultoria ambiental, sustentabilidade, licenciamento ambiental, gestão ambiental, meio ambiente, Foz do Iguaçu"
+    />
+    <meta name="author" content="Luar Ambiental" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- =========================
+         IDENTIDADE VISUAL
+    ========================== -->
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
+    <meta name="theme-color" content="#1F6F5C" />
+
+    <!-- =========================
+         OPEN GRAPH (Google / WhatsApp / LinkedIn)
+    ========================== -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Luar Ambiental | Consultoria e Soluções Ambientais" />
+    <meta
+      property="og:description"
+      content="Luar Ambiental é uma consultoria especializada na execução e monitoramento de projetos ambientais, licenciamento e gestão ambiental em Foz do Iguaçu – PR."
+    />
+    <meta property="og:url" content="https://www.luarambiental.com.br" />
+    <meta property="og:site_name" content="Luar Ambiental" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:image" content="https://www.luarambiental.com.br/og-image.png" />
+
+    <!-- =========================
+         TWITTER CARDS
+    ========================== -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Luar Ambiental | Soluções Ambientais" />
+    <meta
+      name="twitter:description"
+      content="Luar Ambiental é uma consultoria especializada na execução e monitoramento de projetos ambientais, licenciamento e gestão ambiental em Foz do Iguaçu – PR."
+    />
+    <meta name="twitter:image" content="https://www.luarambiental.com.br/og-image.png" />
+
+    <!-- =========================
+         PERFORMANCE - FONTS
+    ========================== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cardo:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- =====================================================
+         SCHEMA 1 — ORGANIZATION (MARCA)
+    ====================================================== -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Luar Ambiental",
+        "url": "https://www.luarambiental.com.br",
+        "logo": "https://www.luarambiental.com.br/favicon.png",
+        "description": "Consultoria e soluções ambientais com foco em sustentabilidade, licenciamento e gestão ambiental.",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Tv. Cristiano Weirich, 91 - Centro",
+          "addressLocality": "Foz do Iguaçu",
+          "addressRegion": "PR",
+          "postalCode": "85851-901",
+          "addressCountry": "BR"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+55-45-99136-5793",
+          "contactType": "customer service",
+          "email": "comercial@luarambiental.com.br"
+        },
+        "sameAs": [
+          "https://www.instagram.com",
+          "https://www.facebook.com",
+          "https://www.tiktok.com",
+          "https://www.linkedin.com"
+        ]
+      }
+    </script>
+
+    <!-- =====================================================
+         SCHEMA 2 — WEBSITE (CONTROLA O SITE NAME DO GOOGLE)
+         ESTE É O PONTO-CHAVE PARA SAIR "luar-ambiental"
+    ====================================================== -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Luar Ambiental",
+        "alternateName": "Luar Ambiental Consultoria Ambiental",
+        "url": "https://www.luarambiental.com.br"
+      }
+    </script>
   </head>
+
   <body>
+
+    <noscript>
+      Este site necessita de JavaScript para funcionar corretamente.
+    </noscript>
+
     <div id="app"></div>
+
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
