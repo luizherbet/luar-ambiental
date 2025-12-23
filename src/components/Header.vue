@@ -36,6 +36,7 @@
                 <i class="bi bi-instagram text-xl cursor-pointer hover:text-green-700"></i>
                 <i class="bi bi-facebook text-xl cursor-pointer hover:text-green-700"></i>
                 <i class="bi bi-tiktok text-xl cursor-pointer hover:text-green-700"></i>
+                <i class="bi bi-linkedin text-xl cursor-pointer hover:text-green-700"></i>
             </div>
         </div>
         
@@ -53,6 +54,7 @@
             <i class="bi bi-instagram text-xl cursor-pointer hover:text-green-700"></i>
             <i class="bi bi-facebook text-xl cursor-pointer hover:text-green-700"></i>
             <i class="bi bi-tiktok text-xl cursor-pointer hover:text-green-700"></i>
+            <i class="bi bi-linkedin text-xl cursor-pointer hover:text-green-700"></i>
         </div>
     </div>
 </template>
