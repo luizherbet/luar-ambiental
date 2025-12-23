@@ -11,6 +11,7 @@
           cols="12"
           sm="6"
           md="4"
+          class="card-col"
         >
           <v-card
             class="mx-auto card-simplified"
@@ -192,59 +193,64 @@ function closeModal() {
 
 const cards = ref([
   {
-    title: 'Plano Básico',
+    title: 'Plano Básico: Capivara',
     price: 'BRL 49,90',
-    description: 'O plano perfeito para a empresa que não quer mais dor de cabeça com cursos exigidos pelas diferentes fiscalizações municipais, estaduais e federais.',
-    fullDescription: 'O plano perfeito para a empresa que não quer mais dor de cabeça com cursos exigidos pelas diferentes fiscalizações municipais, estaduais e federais. Este plano oferece acesso completo a todos os cursos necessários para manter sua empresa em conformidade com as exigências legais, sem preocupações com prazos ou atualizações.',
+    description: 'Todos os cursos ambientais e sanitários, acompanhado por especialistas.',
+    fullDescription: 'O Plano Básico Capivara oferece acesso completo a todos os cursos ambientais e sanitários exigidos pelas diferentes fiscalizações municipais, estaduais e federais. Todos os cursos são acompanhados por especialistas qualificados, garantindo que sua empresa esteja sempre em conformidade com as exigências legais.',
     image: curso001,
     benefits: [
-      'Acesso a todos os cursos exigidos por fiscalizações',
-      'Atualizações automáticas de conteúdo',
+      'Todos os cursos ambientais e sanitários',
+      'Acompanhamento por especialistas',
       'Certificados válidos em todo território nacional',
+      'Atualizações automáticas de conteúdo',
       'Suporte técnico especializado'
     ]
   },
   {
-    title: 'Plano Essencial',
+    title: 'Plano Essencial: Jaguatirica',
     price: 'BRL 650,00',
-    description: 'O plano ideal para a sua empresa ter todos os itens necessários sanitários exigidos pela vigilância sanitária local, verifique a disponibilidade na sua cidade atualmente atendemos Foz do Iguaçu/PR e Niterói/RJ',
-    fullDescription: 'O plano ideal para a sua empresa ter todos os itens necessários sanitários exigidos pela vigilância sanitária local. Este plano inclui documentação completa, treinamentos específicos e acompanhamento para garantir que sua empresa esteja sempre em conformidade. Verifique a disponibilidade na sua cidade - atualmente atendemos Foz do Iguaçu/PR e Niterói/RJ.',
+    description: 'Tudo do plano anterior mais cursos especializados. Inclui também serviços: desinsetização/desratização, limpeza de caixa d\'água e PMOC.',
+    fullDescription: 'O Plano Essencial Jaguatirica inclui tudo do Plano Básico Capivara, além de cursos especializados. Este plano também inclui serviços essenciais: desinsetização/desratização, limpeza de caixa d\'água e PMOC (Plano de Manutenção, Operação e Controle). Ideal para empresas que precisam de uma solução completa em saúde ambiental.',
     image: curso002,
     benefits: [
-      'Documentação sanitária completa',
-      'Treinamentos específicos para sua área',
-      'Acompanhamento contínuo',
-      'Atendimento presencial nas cidades atendidas'
+      'Tudo do Plano Básico Capivara',
+      'Cursos especializados adicionais',
+      'Serviço de desinsetização/desratização',
+      'Limpeza de caixa d\'água',
+      'PMOC (Plano de Manutenção, Operação e Controle)',
+      'Acompanhamento contínuo por especialistas'
     ]
   },
   {
-    title: 'Plano Completo',
+    title: 'Plano Completo: Harpia',
     price: 'BRL 980,00',
-    description: 'O mais aclamado por todas as empresas de grande porte, tem tudo incluído desde sanitários a PGRS ou PGRCC o perfil que mais se enquadra na maioria, não quer ter problemas com multas, escolha este de olhos fechados para que não se preocupe depois!',
-    fullDescription: 'O mais aclamado por todas as empresas de grande porte. Este plano tem tudo incluído desde documentação sanitária até PGRS (Plano de Gerenciamento de Resíduos Sólidos) ou PGRCC (Plano de Gerenciamento de Resíduos da Construção Civil). O perfil que mais se enquadra na maioria das empresas. Não quer ter problemas com multas? Escolha este de olhos fechados para que não se preocupe depois! Inclui auditorias regulares, consultoria especializada e suporte prioritário.',
+    description: 'Tudo do plano anterior, serviços, PGRS ou PGRCC e auditoria todos os meses.',
+    fullDescription: 'O Plano Completo Harpia inclui tudo do Plano Essencial Jaguatirica, além de serviços adicionais, PGRS (Plano de Gerenciamento de Resíduos Sólidos) ou PGRCC (Plano de Gerenciamento de Resíduos da Construção Civil) e auditoria mensal. O perfil que mais se enquadra na maioria das empresas de grande porte. Não quer ter problemas com multas? Escolha este de olhos fechados para que não se preocupe depois!',
     image: curso003,
     benefits: [
+      'Tudo do Plano Essencial Jaguatirica',
+      'Serviços adicionais inclusos',
       'PGRS ou PGRCC completo',
-      'Documentação sanitária',
-      'Auditorias regulares',
+      'Auditoria todos os meses',
       'Consultoria especializada',
       'Suporte prioritário 24/7',
       'Treinamentos para toda equipe'
     ]
   },
   {
-    title: 'Plano Avançado',
+    title: 'Plano Avançado: Cobra',
     price: 'BRL 3.508,00',
-    description: 'Plano mais eficaz para área da saúde ambiental, tudo incluso e acompanhamento contínuo, os valores podem sofrer alterações de acordo com seu tamanho ou produção de resíduos.',
-    fullDescription: 'Plano mais eficaz para área da saúde ambiental. Tudo incluso e acompanhamento contínuo. Este plano é ideal para empresas do setor de saúde que precisam de gestão ambiental completa e especializada. Os valores podem sofrer alterações de acordo com seu tamanho ou produção de resíduos. Inclui gestão completa de resíduos de saúde, treinamentos especializados e certificações específicas do setor.',
+    description: 'Tudo do plano anterior, serviços e PGRSS. Os valores podem sofrer alterações de acordo com seu tamanho ou produção de resíduos.',
+    fullDescription: 'O Plano Avançado Cobra inclui tudo do Plano Completo Harpia, além de serviços adicionais e PGRSS (Plano de Gerenciamento de Resíduos de Serviços de Saúde). Este é o plano mais completo e eficaz para área da saúde ambiental, com tudo incluso e acompanhamento contínuo. Os valores podem sofrer alterações de acordo com seu tamanho ou produção de resíduos, garantindo um plano customizado para sua necessidade específica.',
     image: curso004,
     benefits: [
-      'Gestão completa de resíduos de saúde',
-      'Treinamentos especializados',
-      'Certificações específicas do setor',
+      'Tudo do Plano Completo Harpia',
+      'Serviços adicionais inclusos',
+      'PGRSS (Plano de Gerenciamento de Resíduos de Serviços de Saúde)',
       'Acompanhamento contínuo personalizado',
       'Consultoria técnica especializada',
-      'Plano customizado conforme necessidade'
+      'Plano customizado conforme necessidade',
+      'Valores ajustáveis conforme tamanho/produção de resíduos'
     ]
   },
   {
@@ -364,6 +370,8 @@ const cards = ref([
   display: flex;
   flex-direction: column;
   min-height: 500px;
+  max-width: 90%;
+  margin: 0 auto;
 }
 
 .card-simplified :deep(.v-card-text) {
@@ -420,6 +428,7 @@ const cards = ref([
   width: 100%;
   height: 250px;
   object-fit: cover;
+  object-position: center center;
 }
 
 .card-simplified :deep(.v-img) {
@@ -431,8 +440,9 @@ const cards = ref([
 
 .card-simplified :deep(.v-img__img) {
   width: 100% !important;
-  height: 250px !important;
+  height: 100% !important;
   object-fit: cover !important;
+  object-position: center center !important;
 }
 
 .card-title-container {
@@ -452,6 +462,16 @@ const cards = ref([
   display: block !important;
   -webkit-line-clamp: unset !important;
   -webkit-box-orient: unset !important;
+}
+
+.card-col {
+  max-width: 100%;
+}
+
+@media (min-width: 960px) {
+  .card-col {
+    max-width: 30%;
+  }
 }
 </style>
 

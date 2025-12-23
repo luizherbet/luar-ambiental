@@ -42,7 +42,7 @@
           :href="slide.appointmentLink"
           target="_blank"
         >
-          Marcar Agendamento
+          Marcar agendamento
         </v-btn>
       </div>
     </v-carousel-item>
