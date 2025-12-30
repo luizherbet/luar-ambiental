@@ -126,10 +126,10 @@ const quickLinks = ref([
 ])
 
 const socialMedia = ref([
-  { name: 'Instagram', url: 'https://instagram.com', icon: 'bi-instagram' },
-  { name: 'Facebook', url: 'https://facebook.com', icon: 'bi-facebook' },
-  { name: 'TikTok', url: 'https://tiktok.com', icon: 'bi-tiktok' },
-  { name: 'LinkedIn', url: 'https://linkedin.com', icon: 'bi-linkedin' }
+  { name: 'LinkedIn', url: 'https://www.linkedin.com/company/luar-ambiental/', icon: 'bi-linkedin' },
+  { name: 'Facebook', url: 'https://www.facebook.com/share/1ARc1bH6k4/?mibextid=wwXIfr', icon: 'bi-facebook' },
+  { name: 'Instagram', url: 'https://www.instagram.com/ambiental.luar?igsh=MW5lb2ozZ3RqMXZoNg%3D%3D&utm_source=qr', icon: 'bi-instagram' },
+  { name: 'TikTok', url: 'https://www.tiktok.com/@ambiental.luar?_r=1&_t=ZS-92X6z43Uwk5', icon: 'bi-tiktok' }
 ])
 
 const whatsappNumber = ref('5545991365793') // (45) 99136-5793

@@ -1,170 +1,332 @@
 <template>
   <div class="about-section py-12 px-4">
     <v-container>
-      <!-- Título -->
-      <div class="text-center mb-8">
-        <h2 class="text-h3 font-weight-bold mb-4">Sobre Nós</h2>
-      </div>
-
-      <!-- Seção de Texto -->
-      <div class="text-section mb-12">
+      <!-- Seção Nossa História -->
+      <div id="nossa-historia" class="history-section mb-16">
+        <h3 class="section-subtitle mb-8">Nossa História</h3>
         <v-row justify="center">
           <v-col cols="12" md="10" lg="8">
-            <p class="text-body-1 text-center">
-              {{ aboutText }}
-            </p>
+            <div class="history-content">
+              <p class="history-text mb-4">
+                A Luar nasceu em 2023 com a missão de ser um agente facilitador para empresas que buscam excelência em conformidade e sustentabilidade. O início foi marcado pelos desafios naturais de quem se propõe a desbravar um setor técnico e rigoroso, mas a intenção de melhorar os processos empresariais e simplificar as papeladas ambientais e sanitárias sempre foi o nosso norte.
+              </p>
+              <p class="history-text mb-4">
+                Hoje, a Luar consolidou-se no mercado através de uma atuação constante e uma equipe técnica de alto nível. Com uma estrutura sólida e parcerias estratégicas com empresas em diversos setores, oferecemos uma rede completa de soluções para nossos clientes.
+              </p>
+              <p class="history-text">
+                O que começou como um sonho de simplificação hoje é uma realidade robusta, contando com mais de 30 serviços especializados que garantem que sua empresa esteja sempre em dia com as exigências legais e comprometida com o meio ambiente.
+              </p>
+            </div>
           </v-col>
         </v-row>
       </div>
 
-      <!-- Seção da Equipe -->
-      <div class="team-section">
-        <h3 class="text-h4 font-weight-bold text-center mb-12">Nossa Equipe</h3>
-        <v-row justify="center" class="team-row">
-          <v-col
-            v-for="(member, index) in teamMembers"
-            :key="index"
-            cols="12"
-            sm="6"
-            md="3"
-            class="team-col"
-          >
-            <v-card class="team-card text-center" elevation="2">
-              <v-img
-                v-if="member.photo"
-                :src="member.photo"
-                :alt="member.name"
-                height="250"
-                cover
-                class="team-photo"
-              ></v-img>
-              
-              <v-card-item>
-                <v-card-title class="text-h6">{{ member.name }}</v-card-title>
-                <v-card-subtitle class="text-subtitle-1 font-weight-medium">
-                  {{ member.role }}
-                </v-card-subtitle>
-              </v-card-item>
+      <!-- Seção Estrutura Institucional -->
+      <div class="institutional-section mb-16">
+        <h3 class="section-subtitle mb-12">Estrutura Institucional</h3>
+        
+        <!-- Primeira linha: Propósito e Missão -->
+        <v-row class="institutional-row" justify="center">
+          <!-- Propósito -->
+          <v-col cols="12" md="5" class="mb-6 pb-6">
+            <div class="institutional-card-item">
+              <div class="institutional-icon-wrapper">
+                <v-icon size="56" color="green-darken-2">mdi-bullseye-arrow</v-icon>
+              </div>
+              <h3 class="institutional-title-text">Propósito</h3>
+              <div class="institutional-divider"></div>
+              <p class="institutional-text">
+                Descomplicar a gestão ambiental e sanitária para que o empreendedor possa focar no crescimento do seu negócio com segurança e responsabilidade.
+              </p>
+            </div>
+          </v-col>
 
-              <v-card-text>
-                <p class="text-body-2">{{ member.description }}</p>
-              </v-card-text>
-            </v-card>
+          <!-- Missão -->
+          <v-col cols="12" md="5" class="mb-6">
+            <div class="institutional-card-item">
+              <div class="institutional-icon-wrapper">
+                <v-icon size="56" color="green-darken-2">mdi-target</v-icon>
+              </div>
+              <h3 class="institutional-title-text">Missão</h3>
+              <div class="institutional-divider"></div>
+              <p class="institutional-text">
+                Oferecer soluções integradas em consultoria, engenharia e serviços ambientais/sanitários, entregando conformidade técnica por meio de uma equipe qualificada e parcerias inovadoras.
+              </p>
+            </div>
+          </v-col>
+        </v-row>
+
+        <!-- Segunda linha: Visão -->
+        <v-row class="institutional-row mb-8" justify="center">
+          <v-col cols="12" md="10" class="mb-6">
+            <div class="institutional-card-item">
+              <div class="institutional-icon-wrapper">
+                <v-icon size="56" color="green-darken-2">mdi-eye</v-icon>
+              </div>
+              <h3 class="institutional-title-text">Visão</h3>
+              <div class="institutional-divider"></div>
+              <p class="institutional-text">
+                Ser referência em consultoria multisetorial, reconhecida pela capacidade de resolver burocracias complexas e implementar práticas sustentáveis de forma prática e acessível.
+              </p>
+            </div>
+          </v-col>
+        </v-row>
+
+        <!-- Terceira linha: Valores -->
+        <v-row class="institutional-row" justify="center">
+          <v-col cols="12" md="10">
+            <div class="institutional-card-item">
+              <div class="institutional-icon-wrapper">
+                <v-icon size="56" color="green-darken-2">mdi-heart</v-icon>
+              </div>
+              <h3 class="institutional-title-text">Valores</h3>
+              <div class="institutional-divider"></div>
+              <div class="values-container">
+                <div class="value-card">
+                  <strong class="value-title">Conformidade Técnica</strong>
+                  <p class="value-description">Rigor nos laudos, perícias e programas como PGRCC, PGRSS e PGRS.</p>
+                </div>
+                <div class="value-card">
+                  <strong class="value-title">Colaboração Estratégica</strong>
+                  <p class="value-description">Valorização de parcerias que ampliam nosso alcance, da engenharia civil à energia solar.</p>
+                </div>
+                <div class="value-card">
+                  <strong class="value-title">Sustentabilidade Aplicada</strong>
+                  <p class="value-description">Foco em soluções reais como compostagem, reuso de água e economia de energia.</p>
+                </div>
+                <div class="value-card">
+                  <strong class="value-title">Constância e Compromisso</strong>
+                  <p class="value-description">Atuação ética e contínua para garantir a tranquilidade de nossos clientes.</p>
+                </div>
+              </div>
+            </div>
           </v-col>
         </v-row>
       </div>
+
     </v-container>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import equipe001 from '../assets/equipe001.jpeg'
-import equipe002 from '../assets/equipe002.jpg'
-// import equipe003 from '../assets/equipe003.jpg'
-import equipe004 from '../assets/equipe004.jpeg'
-
-const aboutText = ref(
-  'Somos uma empresa especializada em serviços de saúde ambiental em Foz do Iguaçu, Paraná, criada em 2023. Nossa missão é proporcionar serviços de excelência, sempre priorizando a sustentabilidade e o cuidado com o meio ambiente. Trabalhamos com dedicação e comprometimento para atender nossos clientes com as melhores soluções do mercado.'
-)
-
-const teamMembers = ref([
-  {
-    name: 'Raul Silva',
-    role: 'Presidente Luar',
-    photo: equipe001,
-    description: 'Graduado em Ciências Biológicas (2016), Pós-graduado em Pericia e auditoria Ambiental. Atualmente Mestrando em Saúde Publica pela Uneatlantico da Espanha.'
-  },
-  {
-    name: 'Kendall Alves de Araújo',
-    role: 'Co-Presidente',
-    description: 'Técnica em Meio Ambiente (2021). Comanda a parte de Auditoria da Luar Ambiental'
-  },
-  {
-    name: 'Anthony Araujo da Silva',
-    role: 'Financeiro',
-    photo: equipe002,
-    description: 'Administrador financeiro desde os 16 anos na Luar Atualmente, coordena todo o financeiro e toda a Luar Ambiental com suas filiais.'
-  },
-  {
-    name: 'Luiz Herbet',
-    role: 'Marketing',
-    photo: equipe004,
-    description: 'Engenheiro da Computação e Desenvolvedor Full Stack, responsável pela elaboração do site institucional da Luar Ambiental e pela criação de conteúdo para as redes sociais.'
-  }
-])
+// Componente focado apenas em "Sobre Nós" - História e Estrutura Institucional
 </script>
 
 <style scoped>
 .about-section {
   min-height: 800px;
-  background-color: #f5f5f5;
+  background: linear-gradient(135deg, #ffffff 0%, #f0f7f4 100%);
   position: relative;
   z-index: 5;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 }
 
 .text-section {
   margin-bottom: 3rem;
 }
 
-.team-section :deep(.v-row) {
+.about-title {
+  font-size: 3rem;
+  font-weight: 400;
+  color: #1a1a1a;
   margin: 0;
 }
 
-.team-row {
-  margin: 0;
+
+/* Seção Nossa História */
+.history-section {
+  margin-bottom: 4rem;
 }
 
-.team-col {
-  padding: 0 4px !important;
-  margin-bottom: 16px;
+.section-subtitle {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.history-content {
+  text-align: justify;
+}
+
+.history-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #444;
+  font-weight: 400;
+  margin-bottom: 1.5rem;
+}
+
+/* Seção Estrutura Institucional */
+.institutional-section {
+  margin-bottom: 4rem;
+}
+
+.institutional-row {
+  align-items: stretch;
+}
+
+/* Garante altura igual para Propósito e Missão */
+.institutional-row > .v-col {
+  display: flex;
+}
+
+.institutional-row > .v-col .institutional-card-item {
+  flex: 1;
+  min-height: 240px;
+}
+
+.institutional-card {
+  height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.institutional-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15) !important;
+}
+
+.institutional-card-item {
+  padding: 10px 20px 24px 20px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 200px;
+}
+
+.institutional-card-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.institutional-icon-wrapper {
   display: flex;
   justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 0.75rem;
 }
 
-@media (min-width: 960px) {
-  .team-section :deep(.v-col-md-3) {
-    flex: 0 0 25% !important;
-    max-width: 25% !important;
-    padding-left: 4px !important;
-    padding-right: 4px !important;
+.institutional-title-text {
+  font-size: 2rem !important;
+  font-weight: 600 !important;
+  color: #1a1a1a;
+  text-align: center !important;
+  margin: 0 0 0.75rem 0 !important;
+  padding: 0 !important;
+  width: 100%;
+  line-height: 1.3;
+}
+
+.institutional-divider {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #2e7d32, #66bb6a);
+  margin: 0 auto 1.25rem auto;
+  border-radius: 2px;
+}
+
+.institutional-text {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #555;
+  font-weight: 400;
+  margin: 0;
+  text-align: center;
+}
+
+.values-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 1rem;
+  align-items: start;
+  justify-items: center; /* Centraliza cada card na coluna */
+}
+
+@media (max-width: 768px) {
+  .values-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.value-card {
+  background: #f8f9fa;
+  padding: 0.75rem 1.25rem 0.25rem 1.25rem !important;
+  border-radius: 8px;
+  border-left: 4px solid #2e7d32;
+  text-align: center;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 6px;
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto; /* Centraliza o card dentro da célula */
+}
+
+.value-card:hover {
+  transform: translateX(4px);
+  background-color: #f0f7f4;
+}
+
+.value-title {
+  font-size: 1.1rem;
+  color: #1a1a1a;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.5rem;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  line-height: 1.3;
+  position: relative;
+  top: 0;
+}
+
+.value-description {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #666;
+  margin: 0;
+  font-weight: 400;
+  flex: 1;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .section-subtitle {
+    font-size: 1.8rem;
   }
   
-  .team-col {
-    margin-bottom: 0;
-    padding: 0 4px !important;
-    justify-content: flex-start;
+  .history-text {
+    font-size: 1rem;
+    text-align: left;
   }
-}
-
-.team-card {
-  height: 100%;
-  transition: transform 0.3s ease;
-  max-width: 280px;
-  width: 100%;
-  margin: 10px auto;
-}
-
-.team-card:hover {
-  transform: translateY(-5px);
-}
-
-.team-photo {
-  border-radius: 4px 4px 0 0;
-}
-
-.team-card :deep(.v-img) {
-  width: 100% !important;
-  height: 250px !important;
-  min-height: 250px !important;
-  max-height: 250px !important;
-}
-
-.team-card :deep(.v-img__img) {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
-  object-position: center center !important;
+  
+  .institutional-title {
+    font-size: 1.3rem !important;
+  }
+  
+  .institutional-text,
+  .value-item {
+    font-size: 0.95rem;
+  }
 }
 </style>
 

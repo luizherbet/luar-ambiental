@@ -185,7 +185,6 @@ const carouselSlides = [
 }
 
 .carousel-title {
-  font-family: 'Cardo', serif;
   font-size: 4.5rem;
   font-weight: 400;
   letter-spacing: 0.02em;
@@ -209,7 +208,6 @@ const carouselSlides = [
 
 /* Estilos para o slide especial */
 .carousel-title-special {
-  font-family: 'Cardo', serif;
   font-size: 3rem;
   font-weight: 400;
   letter-spacing: 0.02em;

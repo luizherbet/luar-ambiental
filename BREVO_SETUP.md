@@ -198,3 +198,6 @@ const BREVO_LIST_ID = 123 // Substitua pelo ID real da sua lista
 - Dashboard: https://app.brevo.com
 
 
+
+
+

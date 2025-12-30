@@ -13,14 +13,25 @@
       <CardsSection />
     </section>
     
-    <!-- Carousel de Clientes -->
-    <section id="clientes">
-      <ClientsCarousel />
+    <!-- Seção de Serviços Detalhados -->
+    <section id="servicos-detalhados">
+      <ServicesSection />
     </section>
+    
+    <!-- Carousel de Clientes -->
+    <!-- Oculto temporariamente - descomente para exibir no futuro -->
+    <!-- <section id="clientes">
+      <ClientsCarousel />
+    </section> -->
     
     <!-- Seção Sobre Nós -->
     <section id="sobre-nos">
       <AboutUs />
+    </section>
+    
+    <!-- Seção Nossa Equipe -->
+    <section id="nossa-equipe">
+      <TeamSection />
     </section>
     
     <!-- Rodapé -->
@@ -36,8 +47,10 @@
 import Header from './components/Header.vue';
 import Carousel from './components/Carousel.vue';
 import CardsSection from './components/CardsSection.vue';
+import ServicesSection from './components/ServicesSection.vue';
 import ClientsCarousel from './components/ClientsCarousel.vue';
 import AboutUs from './components/AboutUs.vue';
+import TeamSection from './components/TeamSection.vue';
 import Footer from './components/Footer.vue';
 import NewsletterButton from './components/NewsletterButton.vue';
 
@@ -47,8 +60,10 @@ export default {
     Header,
     Carousel,
     CardsSection,
+    ServicesSection,
     ClientsCarousel,
     AboutUs,
+    TeamSection,
     Footer,
     NewsletterButton,
   }

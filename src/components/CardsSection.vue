@@ -2,7 +2,7 @@
   <div class="cards-section py-12 px-4">
     <v-container>
       <div class="section-title">
-        <h2 class="title-text">Conheça nossos Serviços</h2>
+        <h2 class="title-text">Conheça nossos Cursos</h2>
       </div>
       <v-row justify="center">
         <v-col
@@ -333,7 +333,7 @@ const cards = ref([
 
 <style scoped>
 .cards-section {
-  background-color: #f5f5f5;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
   min-height: 100vh;
   position: relative;
   z-index: 5;
@@ -347,7 +347,6 @@ const cards = ref([
 }
 
 .title-text {
-  font-family: 'Cardo', serif;
   font-size: 3rem;
   font-weight: 400;
   color: #333;
@@ -421,7 +420,8 @@ const cards = ref([
   display: -webkit-box;
   -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
-  line-height: 1.4;
+  line-height: 1.6;
+  font-weight: 400;
 }
 
 .card-image {
@@ -462,6 +462,7 @@ const cards = ref([
   display: block !important;
   -webkit-line-clamp: unset !important;
   -webkit-box-orient: unset !important;
+  font-weight: 600;
 }
 
 .card-col {

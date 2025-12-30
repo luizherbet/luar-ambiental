@@ -89,3 +89,6 @@ O arquivo `newsletterService.js` já está configurado para usar `/api/newslette
 - Documentação Brevo: https://developers.brevo.com
 
 
+
+
+

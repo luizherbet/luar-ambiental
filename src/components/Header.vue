@@ -33,10 +33,17 @@
             
             <!-- Ícones Sociais -->
             <div class="flex items-center justify-center gap-3 pb-3 px-4 border-t border-gray-200 pt-3">
-                <i class="bi bi-instagram text-xl cursor-pointer hover:text-green-700"></i>
-                <i class="bi bi-facebook text-xl cursor-pointer hover:text-green-700"></i>
-                <i class="bi bi-tiktok text-xl cursor-pointer hover:text-green-700"></i>
-                <i class="bi bi-linkedin text-xl cursor-pointer hover:text-green-700"></i>
+                <a
+                    v-for="(social, index) in socialLinks"
+                    :key="index"
+                    :href="social.url"
+                    target="_blank"
+                    rel="noopener"
+                    :aria-label="social.name"
+                    class="text-xl hover:text-green-700"
+                >
+                    <i :class="`bi ${social.icon}`"></i>
+                </a>
             </div>
         </div>
         
@@ -51,10 +58,17 @@
         
         <!-- Ícones Sociais Desktop -->
         <div class="hidden md:flex items-center gap-2">
-            <i class="bi bi-instagram text-xl cursor-pointer hover:text-green-700"></i>
-            <i class="bi bi-facebook text-xl cursor-pointer hover:text-green-700"></i>
-            <i class="bi bi-tiktok text-xl cursor-pointer hover:text-green-700"></i>
-            <i class="bi bi-linkedin text-xl cursor-pointer hover:text-green-700"></i>
+            <a
+                v-for="(social, index) in socialLinks"
+                :key="index"
+                :href="social.url"
+                target="_blank"
+                rel="noopener"
+                :aria-label="social.name"
+                class="text-xl hover:text-green-700"
+            >
+                <i :class="`bi ${social.icon}`"></i>
+            </a>
         </div>
     </div>
 </template>
@@ -66,10 +80,17 @@ export default {
     setup() {
         const open = ref(false)
         const Links = [
-            { name: "Serviços", link: "#servicos" },
-            { name: "Clientes", link: "#clientes" },
+            { name: "Cursos", link: "#servicos" },
+            { name: "Serviços", link: "#servicos-detalhados" },
             { name: "Sobre nós", link: "#sobre-nos" },
-            { name: "Contato", link: "#contato" },
+            { name: "Equipe", link: "#nossa-equipe" },
+        ]
+
+        const socialLinks = [
+            { name: 'LinkedIn', url: 'https://www.linkedin.com/company/luar-ambiental/', icon: 'bi-linkedin' },
+            { name: 'Facebook', url: 'https://www.facebook.com/share/1ARc1bH6k4/?mibextid=wwXIfr', icon: 'bi-facebook' },
+            { name: 'Instagram', url: 'https://www.instagram.com/ambiental.luar?igsh=MW5lb2ozZ3RqMXZoNg%3D%3D&utm_source=qr', icon: 'bi-instagram' },
+            { name: 'TikTok', url: 'https://www.tiktok.com/@ambiental.luar?_r=1&_t=ZS-92X6z43Uwk5', icon: 'bi-tiktok' },
         ]
 
         const handleLinkClick = (event, link) => {
@@ -87,8 +108,23 @@ export default {
                         const extraOffset = 80 // Offset adicional para ir um pouco mais abaixo
                         
                         if (targetId === 'servicos') {
-                            // Para serviços, precisa rolar até o final do carousel (100vh) + offset adicional
+                            // Para cursos/serviços, precisa rolar até o final do carousel (100vh) + offset adicional
                             scrollPosition = window.innerHeight + extraOffset
+                        } else if (targetId === 'servicos-detalhados') {
+                            // Para serviços detalhados, calcula a posição normal com offset adicional
+                            const headerHeight = 120
+                            const rect = targetElement.getBoundingClientRect()
+                            scrollPosition = rect.top + window.pageYOffset - headerHeight + extraOffset
+                        } else if (targetId === 'nossa-historia') {
+                            // Para nossa história, que está dentro de sobre-nos, calcula a posição dentro da seção
+                            const headerHeight = 120
+                            const rect = targetElement.getBoundingClientRect()
+                            scrollPosition = rect.top + window.pageYOffset - headerHeight + extraOffset
+                        } else if (targetId === 'nossa-equipe') {
+                            // Para nossa equipe, calcula a posição normal com offset adicional
+                            const headerHeight = 120
+                            const rect = targetElement.getBoundingClientRect()
+                            scrollPosition = rect.top + window.pageYOffset - headerHeight + extraOffset
                         } else {
                             // Para outras seções, calcula a posição normal com offset adicional
                             const headerHeight = 120
@@ -109,7 +145,8 @@ export default {
             Links,
             logo,
             open,
-            handleLinkClick
+            handleLinkClick,
+            socialLinks
         }
     }
 }

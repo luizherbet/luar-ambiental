@@ -1,1 +1,63 @@
 @import "tailwindcss";
+
+/* =========================
+   PADRONIZAÇÃO DE FONTES
+   ========================= */
+
+/* Fonte padrão para todo o site */
+body,
+html {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Fonte para títulos principais (h1, h2) */
+h1,
+h2,
+.title-text,
+.section-title,
+.carousel-title,
+.carousel-title-special {
+  font-family: 'Cardo', serif;
+  font-weight: 400;
+}
+
+/* Fonte para títulos secundários (h3, h4, h5, h6) */
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 600;
+}
+
+/* Força a mesma fonte nos títulos de seções */
+.section-subtitle,
+.institutional-title-text,
+.team-title {
+  font-family: 'Cardo', serif;
+  font-weight: 400;
+}
+
+/* Fonte para textos e elementos padrão */
+p,
+span,
+div,
+a,
+button,
+input,
+textarea,
+select,
+label,
+li,
+td,
+th {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Garantir que componentes Vuetify usem a fonte padrão */
+.v-application {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+}
