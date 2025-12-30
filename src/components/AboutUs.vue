@@ -30,9 +30,6 @@
           <!-- Propósito -->
           <v-col cols="12" md="5" class="mb-6 pb-6">
             <div class="institutional-card-item">
-              <div class="institutional-icon-wrapper">
-                <v-icon size="56" color="green-darken-2">mdi-bullseye-arrow</v-icon>
-              </div>
               <h3 class="institutional-title-text">Propósito</h3>
               <div class="institutional-divider"></div>
               <p class="institutional-text">
@@ -44,9 +41,6 @@
           <!-- Missão -->
           <v-col cols="12" md="5" class="mb-6">
             <div class="institutional-card-item">
-              <div class="institutional-icon-wrapper">
-                <v-icon size="56" color="green-darken-2">mdi-target</v-icon>
-              </div>
               <h3 class="institutional-title-text">Missão</h3>
               <div class="institutional-divider"></div>
               <p class="institutional-text">
@@ -60,9 +54,6 @@
         <v-row class="institutional-row mb-8" justify="center">
           <v-col cols="12" md="10" class="mb-6">
             <div class="institutional-card-item">
-              <div class="institutional-icon-wrapper">
-                <v-icon size="56" color="green-darken-2">mdi-eye</v-icon>
-              </div>
               <h3 class="institutional-title-text">Visão</h3>
               <div class="institutional-divider"></div>
               <p class="institutional-text">
@@ -76,9 +67,6 @@
         <v-row class="institutional-row" justify="center">
           <v-col cols="12" md="10">
             <div class="institutional-card-item">
-              <div class="institutional-icon-wrapper">
-                <v-icon size="56" color="green-darken-2">mdi-heart</v-icon>
-              </div>
               <h3 class="institutional-title-text">Valores</h3>
               <div class="institutional-divider"></div>
               <div class="values-container">
@@ -225,7 +213,7 @@
   font-weight: 600 !important;
   color: #1a1a1a;
   text-align: center !important;
-  margin: 0 0 0.75rem 0 !important;
+  margin: 1rem 0 0.75rem 0 !important;
   padding: 0 !important;
   width: 100%;
   line-height: 1.3;

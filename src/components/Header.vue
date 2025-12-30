@@ -82,7 +82,7 @@ export default {
         const Links = [
             { name: "Cursos", link: "#servicos" },
             { name: "Serviços", link: "#servicos-detalhados" },
-            { name: "Sobre nós", link: "#sobre-nos" },
+            { name: "Quem somos", link: "#sobre-nos" },
             { name: "Equipe", link: "#nossa-equipe" },
         ]
 

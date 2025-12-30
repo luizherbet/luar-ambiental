@@ -2,7 +2,7 @@
   <div class="cards-section py-12 px-4">
     <v-container>
       <div class="section-title">
-        <h2 class="title-text">Conheça nossos Cursos</h2>
+        <h2 class="title-text">Nossos Cursos</h2>
       </div>
       <v-row justify="center">
         <v-col

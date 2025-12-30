@@ -121,7 +121,7 @@ const appointmentLink = 'https://calendar.google.com/calendar/u/0/appointments/s
 const quickLinks = ref([
   { name: 'Início', href: '#servicos' },
   { name: 'Serviços', href: '#servicos' },
-  { name: 'Sobre Nós', href: '#sobre-nos' },
+  { name: 'Quem Somos', href: '#sobre-nos' },
   { name: 'Contato', href: '#contato' }
 ])
 
