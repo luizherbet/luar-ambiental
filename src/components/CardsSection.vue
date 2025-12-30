@@ -474,5 +474,21 @@ const cards = ref([
     max-width: 30%;
   }
 }
+
+@media (max-width: 768px) {
+  /* Em mobile, cria folga lateral para os cards */
+  .card-col {
+    max-width: 88% !important;
+    flex: 0 0 88% !important;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .card-simplified {
+    width: 100%;
+  }
+}
 </style>
 

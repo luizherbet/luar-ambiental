@@ -15,7 +15,7 @@
           cols="12"
           md="6"
           lg="3"
-          class="pa-2"
+          class="pa-2 service-col"
         >
           <div 
             class="service-category-card" 
@@ -272,6 +272,18 @@ const serviceCategories = ref([
   
   .service-category-card:last-child {
     margin-bottom: 0;
+  }
+}
+
+/* Mobile: dar folga lateral nos cards de serviços */
+@media (max-width: 768px) {
+  .service-col {
+    max-width: 88% !important;
+    flex: 0 0 88% !important;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 8px;
+    padding-right: 8px;
   }
 }
 </style>
