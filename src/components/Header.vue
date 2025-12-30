@@ -80,10 +80,12 @@ export default {
     setup() {
         const open = ref(false)
         const Links = [
-            { name: "Cursos", link: "#servicos" },
+            { name: "Cursos", link: "#cursos" },
+            { name: "Planos", link: "#planos" },
             { name: "Serviços", link: "#servicos-detalhados" },
             { name: "Quem somos", link: "#sobre-nos" },
             { name: "Equipe", link: "#nossa-equipe" },
+            { name: "Contato", link: "#contato" },
         ]
 
         const socialLinks = [
@@ -107,26 +109,26 @@ export default {
                         let scrollPosition = 0
                         const extraOffset = 80 // Offset adicional para ir um pouco mais abaixo
                         
-                        if (targetId === 'servicos') {
-                            // Para cursos/serviços, precisa rolar até o final do carousel (100vh) + offset adicional
+                        if (targetId === 'cursos') {
+                            // Cursos logo após o carousel
                             scrollPosition = window.innerHeight + extraOffset
+                        } else if (targetId === 'planos') {
+                            const headerHeight = 120
+                            const rect = targetElement.getBoundingClientRect()
+                            scrollPosition = rect.top + window.pageYOffset - headerHeight + extraOffset
                         } else if (targetId === 'servicos-detalhados') {
-                            // Para serviços detalhados, calcula a posição normal com offset adicional
                             const headerHeight = 120
                             const rect = targetElement.getBoundingClientRect()
                             scrollPosition = rect.top + window.pageYOffset - headerHeight + extraOffset
                         } else if (targetId === 'nossa-historia') {
-                            // Para nossa história, que está dentro de sobre-nos, calcula a posição dentro da seção
                             const headerHeight = 120
                             const rect = targetElement.getBoundingClientRect()
                             scrollPosition = rect.top + window.pageYOffset - headerHeight + extraOffset
                         } else if (targetId === 'nossa-equipe') {
-                            // Para nossa equipe, calcula a posição normal com offset adicional
                             const headerHeight = 120
                             const rect = targetElement.getBoundingClientRect()
                             scrollPosition = rect.top + window.pageYOffset - headerHeight + extraOffset
                         } else {
-                            // Para outras seções, calcula a posição normal com offset adicional
                             const headerHeight = 120
                             const rect = targetElement.getBoundingClientRect()
                             scrollPosition = rect.top + window.pageYOffset - headerHeight + extraOffset

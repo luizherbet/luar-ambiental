@@ -119,8 +119,9 @@ const companyInfo = ref({
 const appointmentLink = 'https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2t8b46fSRZelriTD4eYM1Pzi5asLPHOXwsRzdkbXq6OGEczvEou_9PRAodELfZ8bPGnG0lPXEB?gv=true'
 
 const quickLinks = ref([
-  { name: 'Início', href: '#servicos' },
-  { name: 'Serviços', href: '#servicos' },
+  { name: 'Cursos', href: '#cursos' },
+  { name: 'Planos', href: '#planos' },
+  { name: 'Serviços', href: '#servicos-detalhados' },
   { name: 'Quem Somos', href: '#sobre-nos' },
   { name: 'Contato', href: '#contato' }
 ])

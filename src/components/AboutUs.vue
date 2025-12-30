@@ -103,7 +103,7 @@
 <style scoped>
 .about-section {
   min-height: 800px;
-  background: linear-gradient(135deg, #ffffff 0%, #f0f7f4 100%);
+  background: linear-gradient(135deg, #eaf3ef 0%, #e9ecef 100%);
   position: relative;
   z-index: 5;
   padding-top: 4rem;

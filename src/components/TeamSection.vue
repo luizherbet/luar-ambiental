@@ -76,7 +76,7 @@ const teamMembers = ref([
 <style scoped>
 .team-section {
   min-height: 600px;
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  background: linear-gradient(135deg, #e9ecef 0%, #e5e8eb 100%);
   position: relative;
   z-index: 5;
   padding-top: 4rem;

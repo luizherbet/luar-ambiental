@@ -8,12 +8,17 @@
       <Header />
     </div>
     
-    <!-- Seção de Cards abaixo do carousel -->
-    <section id="servicos">
+    <!-- Cursos -->
+    <section id="cursos">
       <CardsSection />
     </section>
     
-    <!-- Seção de Serviços Detalhados -->
+    <!-- Planos -->
+    <section id="planos">
+      <PlansSection />
+    </section>
+    
+    <!-- Serviços Detalhados -->
     <section id="servicos-detalhados">
       <ServicesSection />
     </section>
@@ -47,6 +52,7 @@
 import Header from './components/Header.vue';
 import Carousel from './components/Carousel.vue';
 import CardsSection from './components/CardsSection.vue';
+import PlansSection from './components/PlansSection.vue';
 import ServicesSection from './components/ServicesSection.vue';
 import ClientsCarousel from './components/ClientsCarousel.vue';
 import AboutUs from './components/AboutUs.vue';
@@ -60,6 +66,7 @@ export default {
     Header,
     Carousel,
     CardsSection,
+    PlansSection,
     ServicesSection,
     ClientsCarousel,
     AboutUs,

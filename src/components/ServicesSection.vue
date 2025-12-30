@@ -125,7 +125,7 @@ const serviceCategories = ref([
 
 <style scoped>
 .services-section {
-  background: linear-gradient(135deg, #ffffff 0%, #f0f7f4 100%);
+  background: linear-gradient(135deg, #f0f7f4 0%, #eaf3ef 100%);
   position: relative;
   z-index: 5;
 }

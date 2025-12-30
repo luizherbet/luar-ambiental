@@ -1,17 +1,17 @@
 <template>
-  <div class="cards-section py-12 px-4">
+  <div class="plans-section py-12 px-4">
     <v-container>
       <div class="section-title">
-        <h2 class="title-text">Nossos Cursos</h2>
+        <h2 class="title-text">Nossos Planos</h2>
       </div>
-      <v-row justify="center">
+      <v-row justify="center" class="plan-row" dense>
         <v-col
           v-for="(card, index) in cards"
           :key="index"
           cols="12"
           sm="6"
-          md="4"
-          class="card-col"
+          md="3"
+          class="plan-col"
         >
           <v-card
             class="mx-auto card-simplified"
@@ -36,7 +36,7 @@
 
             <v-card-actions>
               <v-btn
-                class="price-button"
+                class="price-button plan-button"
                 block
                 @click="openModal(index)"
               >
@@ -51,7 +51,6 @@
       </v-row>
     </v-container>
 
-    <!-- Modal de Detalhes do Curso -->
     <v-dialog
       v-model="dialog"
       max-width="800"
@@ -61,11 +60,7 @@
       <v-card v-if="selectedCard">
         <v-card-title class="d-flex align-center justify-space-between pa-4">
           <span class="text-h5">{{ selectedCard.title }}</span>
-          <v-btn
-            icon
-            variant="text"
-            @click="closeModal"
-          >
+          <v-btn icon variant="text" @click="closeModal">
             <v-icon>mdi-close</v-icon>
           </v-btn>
         </v-card-title>
@@ -119,10 +114,7 @@
 
         <v-card-actions class="pa-4">
           <v-spacer></v-spacer>
-          <v-btn
-            variant="text"
-            @click="closeModal"
-          >
+          <v-btn variant="text" @click="closeModal">
             Fechar
           </v-btn>
           <v-btn
@@ -144,11 +136,10 @@
 
 <script setup>
 import { ref, computed } from 'vue'
-import curso005 from '../assets/cursos005.jpg'
-import curso006 from '../assets/cursos006.jpg'
-import curso007 from '../assets/cursos007.jpg'
-import curso008 from '../assets/cursos008.jpg'
-import curso009 from '../assets/cursos009.jpg'
+import curso001 from '../assets/curso001.jpg'
+import curso002 from '../assets/cursos002.jpg'
+import curso003 from '../assets/cursos003.jpg'
+import curso004 from '../assets/cursos004.jpg'
 
 const dialog = ref(false)
 const selectedCardIndex = ref(null)
@@ -160,7 +151,7 @@ const selectedCard = computed(() => {
   return null
 })
 
-const whatsappNumber = ref('5545991365793') // (45) 99136-5793
+const whatsappNumber = ref('5545991365793')
 const whatsappMessage = computed(() => {
   if (selectedCard.value) {
     return `Olá! Gostaria de saber mais sobre: ${selectedCard.value.title}`
@@ -185,94 +176,79 @@ function closeModal() {
   }, 300)
 }
 
-
-
 const cards = ref([
   {
-    title: 'Curso Gerenciamento Ambiental de Empresas (INDIVIDUAL)',
-    price: 'BRL 1.151,00',
-    oldPrice: 'BRL 1.550,00',
-    description: 'O curso perfeito para um gestor se tornar um ESG qualificado para sua empresa ser sustentável e com lucros visíveis.',
-    fullDescription: 'O curso perfeito para um gestor se tornar um ESG qualificado para sua empresa ser sustentável e com lucros visíveis. Este curso individual oferece capacitação completa em gestão ambiental empresarial, abordando práticas sustentáveis, certificações ambientais, gestão de resíduos e estratégias para tornar sua empresa mais competitiva através da sustentabilidade.',
-    image: curso005,
+    title: 'Plano Básico: Capivara',
+    price: 'BRL 49,90',
+    description: 'Todos os cursos ambientais e sanitários, acompanhado por especialistas.',
+    fullDescription: 'O Plano Básico Capivara oferece acesso completo a todos os cursos ambientais e sanitários exigidos pelas diferentes fiscalizações municipais, estaduais e federais. Todos os cursos são acompanhados por especialistas qualificados, garantindo que sua empresa esteja sempre em conformidade com as exigências legais.',
+    image: curso001,
     benefits: [
-      'Certificado reconhecido nacionalmente',
-      'Material didático completo',
-      'Acesso vitalício ao conteúdo',
-      'Suporte durante o curso',
-      'Aplicação prática imediata'
+      'Todos os cursos ambientais e sanitários',
+      'Acompanhamento por especialistas',
+      'Certificados válidos em todo território nacional',
+      'Atualizações automáticas de conteúdo',
+      'Suporte técnico especializado'
     ]
   },
   {
-    title: 'Curso Boas Praticas Manipulação de Alimentos (INDIVIDUAL)',
-    price: 'BRL 251,00',
-    oldPrice: 'BRL 350,00',
-    description: 'Curso amplamente utilizado para empresas de restaurantes e alimentícios no geral.',
-    fullDescription: 'Curso amplamente utilizado para empresas de restaurantes e alimentícios no geral. Este curso individual capacita profissionais do setor alimentício nas melhores práticas de manipulação de alimentos, garantindo segurança alimentar, qualidade e conformidade com as normas da vigilância sanitária.',
-    image: curso006,
+    title: 'Plano Essencial: Jaguatirica',
+    price: 'BRL 650,00',
+    description: 'Tudo do plano anterior mais cursos especializados. Inclui também serviços: desinsetização/desratização, limpeza de caixa d\'água e PMOC.',
+    fullDescription: 'O Plano Essencial Jaguatirica inclui tudo do Plano Básico Capivara, além de cursos especializados. Este plano também inclui serviços essenciais: desinsetização/desratização, limpeza de caixa d\'água e PMOC (Plano de Manutenção, Operação e Controle). Ideal para empresas que precisam de uma solução completa em saúde ambiental.',
+    image: curso002,
     benefits: [
-      'Certificado válido para vigilância sanitária',
-      'Conteúdo atualizado com normas vigentes',
-      'Acesso online ilimitado',
-      'Material de apoio completo'
+      'Tudo do Plano Básico Capivara',
+      'Cursos especializados adicionais',
+      'Serviço de desinsetização/desratização',
+      'Limpeza de caixa d\'água',
+      'PMOC (Plano de Manutenção, Operação e Controle)',
+      'Acompanhamento contínuo por especialistas'
     ]
   },
   {
-    title: 'Curso Educação Ambiental sobre Resíduos Gerados na Empresa (INDIVIDUAL)',
-    price: 'BRL 551,00',
-    oldPrice: 'BRL 850,00',
-    description: 'Curso amplamente utilizado e de qualidade para lucros eficientes de colaboradores na sua empresa.',
-    fullDescription: 'Curso amplamente utilizado e de qualidade para lucros eficientes de colaboradores na sua empresa. Este curso individual foca na educação ambiental sobre resíduos gerados na empresa, capacitando colaboradores para práticas sustentáveis, redução de desperdícios e gestão eficiente de resíduos, resultando em economia e melhor desempenho ambiental.',
-    image: curso007,
+    title: 'Plano Completo: Harpia',
+    price: 'BRL 980,00',
+    description: 'Tudo do plano anterior, serviços, PGRS ou PGRCC e auditoria todos os meses.',
+    fullDescription: 'O Plano Completo Harpia inclui tudo do Plano Essencial Jaguatirica, além de serviços adicionais, PGRS (Plano de Gerenciamento de Resíduos Sólidos) ou PGRCC (Plano de Gerenciamento de Resíduos da Construção Civil) e auditoria mensal. O perfil que mais se enquadra na maioria das empresas de grande porte. Não quer ter problemas com multas? Escolha este de olhos fechados para que não se preocupe depois!',
+    image: curso003,
     benefits: [
-      'Capacitação completa em gestão de resíduos',
-      'Redução de custos operacionais',
-      'Certificado para toda equipe',
-      'Material prático e aplicável',
-      'Acompanhamento pós-curso'
+      'Tudo do Plano Essencial Jaguatirica',
+      'Serviços adicionais inclusos',
+      'PGRS ou PGRCC completo',
+      'Auditoria todos os meses',
+      'Consultoria especializada',
+      'Suporte prioritário 24/7',
+      'Treinamentos para toda equipe'
     ]
   },
   {
-    title: 'Curso Manipulação e Higiene de Alimentos (INDIVIDUAL)',
-    price: 'BRL 251,00',
-    oldPrice: 'BRL 350,00',
-    description: 'Curso exigido para todos os cargos efetivos de cozinha pública ou privada.',
-    fullDescription: 'Curso exigido para todos os cargos efetivos de cozinha pública ou privada. Este curso individual atende às exigências legais para profissionais que trabalham com manipulação de alimentos, cobrindo normas de higiene, segurança alimentar, boas práticas de fabricação e procedimentos sanitários essenciais.',
-    image: curso008,
+    title: 'Plano Avançado: Cobra',
+    price: 'BRL 3.508,00',
+    description: 'Tudo do plano anterior, serviços e PGRSS. Os valores podem sofrer alterações de acordo com seu tamanho ou produção de resíduos.',
+    fullDescription: 'O Plano Avançado Cobra inclui tudo do Plano Completo Harpia, além de serviços adicionais e PGRSS (Plano de Gerenciamento de Resíduos de Serviços de Saúde). Este é o plano mais completo e eficaz para área da saúde ambiental, com tudo incluso e acompanhamento contínuo. Os valores podem sofrer alterações de acordo com seu tamanho ou produção de resíduos, garantindo um plano customizado para sua necessidade específica.',
+    image: curso004,
     benefits: [
-      'Atende exigências legais',
-      'Certificado reconhecido',
-      'Válido para cozinhas públicas e privadas',
-      'Conteúdo prático e objetivo',
-      'Acesso imediato após compra'
-    ]
-  },
-  {
-    title: 'Curso Determinantes Sociais em Saúde Pública (INDIVIDUAL)',
-    price: 'BRL 671,00',
-    oldPrice: 'BRL 882,00',
-    description: 'Curso utilizado para formação de profissionais da saúde, amplamente acolhido no público e privado',
-    fullDescription: 'Curso utilizado para formação de profissionais da saúde, amplamente acolhido no público e privado. Este curso individual aborda os determinantes sociais em saúde pública, capacitando profissionais da área da saúde para compreender e atuar sobre os fatores sociais que influenciam a saúde das populações, essencial para profissionais que trabalham em saúde coletiva, atenção primária e gestão em saúde.',
-    image: curso009,
-    benefits: [
-      'Reconhecido no setor público e privado',
-      'Certificado válido para progressão',
-      'Conteúdo atualizado e relevante',
-      'Aplicação prática imediata',
-      'Suporte especializado'
+      'Tudo do Plano Completo Harpia',
+      'Serviços adicionais inclusos',
+      'PGRSS (Plano de Gerenciamento de Resíduos de Serviços de Saúde)',
+      'Acompanhamento contínuo personalizado',
+      'Consultoria técnica especializada',
+      'Plano customizado conforme necessidade',
+      'Valores ajustáveis conforme tamanho/produção de resíduos'
     ]
   }
 ])
-
 </script>
 
 <style scoped>
-.cards-section {
-  background: linear-gradient(135deg, #f8f9fa 0%, #f3fbff 100%);
+.plans-section {
+  background: linear-gradient(135deg, #f3fbff 0%, #f0f7f4 100%);
   min-height: 100vh;
   position: relative;
   z-index: 5;
-  margin-top: 100vh;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 }
 
 .section-title {
@@ -284,7 +260,7 @@ const cards = ref([
 .title-text {
   font-size: 3rem;
   font-weight: 400;
-  color: #333;
+  color: #1f3b4d;
   margin: 0;
 }
 
@@ -304,7 +280,7 @@ const cards = ref([
   display: flex;
   flex-direction: column;
   min-height: 500px;
-  max-width: 90%;
+  max-width: 100%;
   margin: 0 auto;
 }
 
@@ -315,7 +291,6 @@ const cards = ref([
 }
 
 .price-button {
-  background-color: #2e7d32 !important;
   color: white !important;
   font-weight: bold !important;
   height: auto !important;
@@ -323,8 +298,12 @@ const cards = ref([
   padding: 12px 16px !important;
 }
 
-.price-button:hover {
-  background-color: #1b5e20 !important;
+.plan-button {
+  background-color: #2b7bbb !important;
+}
+
+.plan-button:hover {
+  background-color: #1f6aa5 !important;
 }
 
 .button-price-content {
@@ -400,19 +379,28 @@ const cards = ref([
   font-weight: 600;
 }
 
-.card-col {
+.plan-col {
   max-width: 100%;
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
 @media (min-width: 960px) {
-  .card-col {
-    max-width: 30%;
+  .plan-col {
+    max-width: 25%;
+    flex: 0 0 25%;
+    padding-left: 6px;
+    padding-right: 6px;
   }
 }
 
+.plan-row {
+  margin-left: -8px;
+  margin-right: -8px;
+}
+
 @media (max-width: 768px) {
-  /* Em mobile, cria folga lateral para os cards */
-  .card-col {
+  .plan-col {
     max-width: 88% !important;
     flex: 0 0 88% !important;
     margin-left: auto;
@@ -423,6 +411,7 @@ const cards = ref([
 
   .card-simplified {
     width: 100%;
+    height: 100%;
   }
 }
 </style>
