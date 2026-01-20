@@ -190,7 +190,7 @@ function closeModal() {
 const cards = ref([
   {
     title: 'Curso Gerenciamento Ambiental de Empresas (INDIVIDUAL)',
-    price: 'BRL 1.151,00',
+    price: 'BRL 1.369,69',
     oldPrice: 'BRL 1.550,00',
     description: 'O curso perfeito para um gestor se tornar um ESG qualificado para sua empresa ser sustentável e com lucros visíveis.',
     fullDescription: 'O curso perfeito para um gestor se tornar um ESG qualificado para sua empresa ser sustentável e com lucros visíveis. Este curso individual oferece capacitação completa em gestão ambiental empresarial, abordando práticas sustentáveis, certificações ambientais, gestão de resíduos e estratégias para tornar sua empresa mais competitiva através da sustentabilidade.',
@@ -205,7 +205,7 @@ const cards = ref([
   },
   {
     title: 'Curso Boas Praticas Manipulação de Alimentos (INDIVIDUAL)',
-    price: 'BRL 251,00',
+    price: 'BRL 298,69',
     oldPrice: 'BRL 350,00',
     description: 'Curso amplamente utilizado para empresas de restaurantes e alimentícios no geral.',
     fullDescription: 'Curso amplamente utilizado para empresas de restaurantes e alimentícios no geral. Este curso individual capacita profissionais do setor alimentício nas melhores práticas de manipulação de alimentos, garantindo segurança alimentar, qualidade e conformidade com as normas da vigilância sanitária.',
@@ -219,7 +219,7 @@ const cards = ref([
   },
   {
     title: 'Curso Educação Ambiental sobre Resíduos Gerados na Empresa (INDIVIDUAL)',
-    price: 'BRL 551,00',
+    price: 'BRL 655,69',
     oldPrice: 'BRL 850,00',
     description: 'Curso amplamente utilizado e de qualidade para lucros eficientes de colaboradores na sua empresa.',
     fullDescription: 'Curso amplamente utilizado e de qualidade para lucros eficientes de colaboradores na sua empresa. Este curso individual foca na educação ambiental sobre resíduos gerados na empresa, capacitando colaboradores para práticas sustentáveis, redução de desperdícios e gestão eficiente de resíduos, resultando em economia e melhor desempenho ambiental.',
@@ -234,7 +234,7 @@ const cards = ref([
   },
   {
     title: 'Curso Manipulação e Higiene de Alimentos (INDIVIDUAL)',
-    price: 'BRL 251,00',
+    price: 'BRL 298,69',
     oldPrice: 'BRL 350,00',
     description: 'Curso exigido para todos os cargos efetivos de cozinha pública ou privada.',
     fullDescription: 'Curso exigido para todos os cargos efetivos de cozinha pública ou privada. Este curso individual atende às exigências legais para profissionais que trabalham com manipulação de alimentos, cobrindo normas de higiene, segurança alimentar, boas práticas de fabricação e procedimentos sanitários essenciais.',
@@ -249,7 +249,7 @@ const cards = ref([
   },
   {
     title: 'Curso Determinantes Sociais em Saúde Pública (INDIVIDUAL)',
-    price: 'BRL 671,00',
+    price: 'BRL 798,49',
     oldPrice: 'BRL 882,00',
     description: 'Curso utilizado para formação de profissionais da saúde, amplamente acolhido no público e privado',
     fullDescription: 'Curso utilizado para formação de profissionais da saúde, amplamente acolhido no público e privado. Este curso individual aborda os determinantes sociais em saúde pública, capacitando profissionais da área da saúde para compreender e atuar sobre os fatores sociais que influenciam a saúde das populações, essencial para profissionais que trabalham em saúde coletiva, atenção primária e gestão em saúde.',

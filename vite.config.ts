@@ -9,4 +9,8 @@ export default defineConfig({
     vuetify({ autoImport: true })
   ],
   base: '/', // Garante que os assets sejam servidos corretamente
+  server: {
+    port: 3002, // Altere para a porta desejada
+    open: true // Opcional: abre o navegador automaticamente
+  }
 })

@@ -33,7 +33,13 @@
                   class="service-item"
                 >
                   <v-icon size="small" :color="category.checkColor" class="check-icon">mdi-check-circle</v-icon>
-                  <span class="service-text">{{ service }}</span>
+                  <a 
+                    :href="getWhatsAppLink(service)" 
+                    target="_blank" 
+                    class="service-text service-link"
+                  >
+                    {{ service }}
+                  </a>
                 </li>
               </ul>
             </div>
@@ -46,6 +52,14 @@
 
 <script setup>
 import { ref } from 'vue'
+
+const whatsappNumber = '5545991365793' // (45) 99136-5793
+
+const getWhatsAppLink = (serviceName) => {
+  const message = `Olá gostaria de ter informações sobre o ${serviceName}`
+  const encodedMessage = encodeURIComponent(message)
+  return `https://wa.me/${whatsappNumber}?text=${encodedMessage}`
+}
 
 const serviceCategories = ref([
   {
@@ -222,6 +236,18 @@ const serviceCategories = ref([
   color: #444;
   font-weight: 400;
   flex: 1;
+}
+
+.service-link {
+  text-decoration: none;
+  color: #444;
+  transition: color 0.2s ease;
+  cursor: pointer;
+}
+
+.service-link:hover {
+  color: #25D366;
+  text-decoration: underline;
 }
 
 /* Cores específicas por categoria */

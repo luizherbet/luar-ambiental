@@ -179,7 +179,7 @@ function closeModal() {
 const cards = ref([
   {
     title: 'Plano Básico: Capivara',
-    price: 'BRL 49,90',
+    price: 'BRL 59,38',
     description: 'Todos os cursos ambientais e sanitários, acompanhado por especialistas.',
     fullDescription: 'O Plano Básico Capivara oferece acesso completo a todos os cursos ambientais e sanitários exigidos pelas diferentes fiscalizações municipais, estaduais e federais. Todos os cursos são acompanhados por especialistas qualificados, garantindo que sua empresa esteja sempre em conformidade com as exigências legais.',
     image: curso001,
@@ -193,7 +193,7 @@ const cards = ref([
   },
   {
     title: 'Plano Essencial: Jaguatirica',
-    price: 'BRL 650,00',
+    price: 'BRL 773,50',
     description: 'Tudo do plano anterior mais cursos especializados. Inclui também serviços: desinsetização/desratização, limpeza de caixa d\'água e PMOC.',
     fullDescription: 'O Plano Essencial Jaguatirica inclui tudo do Plano Básico Capivara, além de cursos especializados. Este plano também inclui serviços essenciais: desinsetização/desratização, limpeza de caixa d\'água e PMOC (Plano de Manutenção, Operação e Controle). Ideal para empresas que precisam de uma solução completa em saúde ambiental.',
     image: curso002,
@@ -208,7 +208,7 @@ const cards = ref([
   },
   {
     title: 'Plano Completo: Harpia',
-    price: 'BRL 980,00',
+    price: 'BRL 1.166,20',
     description: 'Tudo do plano anterior, serviços, PGRS ou PGRCC e auditoria todos os meses.',
     fullDescription: 'O Plano Completo Harpia inclui tudo do Plano Essencial Jaguatirica, além de serviços adicionais, PGRS (Plano de Gerenciamento de Resíduos Sólidos) ou PGRCC (Plano de Gerenciamento de Resíduos da Construção Civil) e auditoria mensal. O perfil que mais se enquadra na maioria das empresas de grande porte. Não quer ter problemas com multas? Escolha este de olhos fechados para que não se preocupe depois!',
     image: curso003,
@@ -224,7 +224,7 @@ const cards = ref([
   },
   {
     title: 'Plano Avançado: Cobra',
-    price: 'BRL 3.508,00',
+    price: 'BRL 4.174,52',
     description: 'Tudo do plano anterior, serviços e PGRSS. Os valores podem sofrer alterações de acordo com seu tamanho ou produção de resíduos.',
     fullDescription: 'O Plano Avançado Cobra inclui tudo do Plano Completo Harpia, além de serviços adicionais e PGRSS (Plano de Gerenciamento de Resíduos de Serviços de Saúde). Este é o plano mais completo e eficaz para área da saúde ambiental, com tudo incluso e acompanhamento contínuo. Os valores podem sofrer alterações de acordo com seu tamanho ou produção de resíduos, garantindo um plano customizado para sua necessidade específica.',
     image: curso004,
