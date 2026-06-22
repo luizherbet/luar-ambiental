@@ -8,7 +8,7 @@
           :key="index"
           cols="12"
           sm="6"
-          md="3"
+          md="4"
           class="team-col"
         >
           <v-card class="team-card text-center" elevation="2">
@@ -43,7 +43,6 @@ import { ref } from 'vue'
 import equipe001 from '../assets/equipe001.jpeg'
 import equipe002 from '../assets/equipe002.jpg'
 import equipe003 from '../assets/equipe003.jpeg'
-import equipe004 from '../assets/equipe004.jpeg'
 
 const teamMembers = ref([
   {
@@ -63,12 +62,6 @@ const teamMembers = ref([
     role: 'Financeiro',
     photo: equipe002,
     description: 'Administrador financeiro na Luar Ambiental desde 2023, é responsável pela coordenação de todo o setor financeiro e pelo apoio estratégico à gestão da empresa e de suas filiais.'
-  },
-  {
-    name: 'Luiz Herbet',
-    role: 'Marketing',
-    photo: equipe004,
-    description: 'Engenheiro da Computação e Desenvolvedor Full Stack, responsável pela elaboração do site institucional da Luar Ambiental e pela criação de conteúdo para as redes sociais.'
   }
 ])
 </script>
