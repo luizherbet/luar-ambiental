@@ -97,8 +97,19 @@
       <v-divider class="my-4"></v-divider>
       <v-row>
         <v-col cols="12" class="text-center">
-          <p class="text-body-2 text-grey-lighten-1 mb-0">
+          <p class="text-body-2 text-grey-lighten-1 mb-2">
             © {{ currentYear }} Luar Ambiental. Todos os direitos reservados.
+          </p>
+          <p class="text-body-2 text-grey-lighten-1 mb-0 developer-credit">
+            Desenvolvido por
+            <a
+              href="https://www.luizherbet.com.br/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="developer-link"
+            >
+              Luiz Herbet
+            </a>
           </p>
         </v-col>
       </v-row>
@@ -225,6 +236,22 @@ const currentYear = computed(() => new Date().getFullYear())
 
 .social-icon {
   font-size: 1.4rem;
+}
+
+.developer-credit {
+  opacity: 0.85;
+}
+
+.developer-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.2s ease;
+}
+
+.developer-link:hover {
+  opacity: 0.8;
+  text-decoration: underline;
 }
 
 @media (max-width: 768px) {
